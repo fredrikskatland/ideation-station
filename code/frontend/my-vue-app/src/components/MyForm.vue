@@ -1,6 +1,6 @@
 <template>
     <div class="form-container">
-        <textarea ref="el" placeholder="What are your interests?" v-model="name" class="styled-textarea"></textarea>
+        <textarea ref="el" placeholder="What are your interests?" v-model="inputData" class="styled-textarea"></textarea>
     </div>
     <div>
         <button 
@@ -9,18 +9,56 @@
             class="styled-button"
             >Submit</button>
     </div>
+    <div v-if="jsonResponse">
+      <h3>JSON Response:</h3>
+      <pre>{{ jsonResponse }}</pre>
+    </div>
 </template>
 
 <script>
     import { ref, onMounted } from 'vue'
+    import { marked } from 'marked';
     export default {
-        setup() {
-            const name = ref('')
-            const el = ref()
-
-            const submitForm = () => {
-                console.log(`Name: ${name.value}`)
+        data() {
+            return {
+                inputData: '',
+                response: null
             }
+        },
+        setup() {
+            const name = ref('');
+            const el = ref();
+            const response = ref(null);
+            const htmlResponse = ref(null);
+            const jsonResponse = ref(null);
+
+
+            const submitForm = async () => {
+                try {
+                    const res = await fetch('http://localhost:8000/pirate-speak/invoke', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        //body: JSON.stringify({ input: { topic: name.value }, config: {} })
+                        body: JSON.stringify({input:{chat_history:[],text: name.value},config:{}})
+                    });
+                    // const jsonResponse = await res.json();
+                    const response = await res.json();
+                    jsonResponse.value = JSON.stringify(response, null, 2); // Format the JSON response for better readability
+                    const markdownResponse = jsonResponse.output; // Extract Markdown from the response
+                    htmlResponse.value = marked(markdownResponse); // Convert Markdown to HTML
+
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+            };
+
+            return {
+                name,
+                response,
+                submitForm
+            };
 
             console.log(el.value)
             onMounted(() => {
@@ -44,6 +82,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 50px;
+    background: url('@/assets/background.webp');
   }
   
   .styled-textarea {
@@ -78,6 +117,12 @@
   .styled-button:hover {
     background-color: #45a049;
     transform: scale(1.05);
+  }
+
+  .background-image {
+    background-color: rgba(255, 255, 255, 0.8); /* Optional: To make the text area more readable */
+    padding: 20px;
+    border-radius: 10px;
   }
 
 </style>

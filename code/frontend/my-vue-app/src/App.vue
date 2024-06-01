@@ -1,41 +1,62 @@
 <script setup>
-import MyForm from './components/MyForm.vue'
+//import MyForm from './components/MyForm.vue';
+import ShowCase from './components/ShowCase.vue';
+import TestForm from './components/TestForm.vue';
 </script>
 
 <template>
-  <div class="ideation-template">
-    <h1>Ideation Station</h1>
-    <img src="./assets/DALL·E 2024-05-31 21.49.33 - A single logo for an ideation and project management app called Ideation Station, with a serious tone. The design should be extremely clean and simple.webp" class="logo" alt="logo" />
+<div class="min-h-screen bg-gray-100">
+    <header class="bg-gray-800 text-white p-4">
+      Header
+    </header>
+    <main class="container mx-auto p-6">
+      <section id="ShowCase" class="w-full">
+        <ShowCase/>
+      </section>
+      <section id="TestForm" class="w-full">
+        <TestForm/>
+      </section>
+    </main>
+    <footer class="bg-gray-800 text-white p-4">
+      Footer
+    </footer>
   </div>
-  <h2>What ideas do you want to explore?</h2>
-  <MyForm/>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+  .logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+    position: center;
+  }
+  .logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+  .logo.vue:hover {
+    filter: drop-shadow(0 0 2em #42b883aa);
+  }
+  h2 {
+    font-size: 1.5em;
+    text-shadow: 0 0 0.2em #3a3b3d;
+    margin: 1em 0;
+  }
 
-.ideation-template {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: url('@/assets/DALL·E 2024-05-31 21.53.18 - Two minimalist background images for an app, using white and gray nuances with some green accents. The design should be clean and simple, featuring ab.webp') no-repeat center center/cover; /* Adjust the path accordingly */
-}
+  h3 {
+    font-size: 1.2em;
+    color: #42b883;
+    text-shadow: 0 0 0.4em #71f850;
+    margin: 1em 0;
+  }
 
-.background-image {
-  background-color: rgba(255, 255, 255, 0.8); /* Optional: To make the text area more readable */
-  padding: 20px;
-  border-radius: 10px;
-}
+  .cool-header {
+    font-family: 'Pacifico', cursive;
+    font-size: 3em;
+    color: #2c3e50;
+    text-align: center;
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
 </style>
