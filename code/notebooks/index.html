@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ project_name }}</title>
+    <style>
+        /* Add some basic styles */
+        body { font-family: Arial, sans-serif; }
+        .milestone { margin-bottom: 20px; }
+        .task { margin-left: 20px; }
+    </style>
+</head>
+<body>
+    <h1>{{ project_name }}</h1>
+    {% for milestone in milestones %}
+        <div class="milestone">
+            <h2>{{ milestone.name }}</h2>
+            <p>{{ milestone.description }}</p>
+            <p><strong>Start Date:</strong> {{ milestone.start_date }}</p>
+            <p><strong>End Date:</strong> {{ milestone.end_date }}</p>
+            <h3>Tasks</h3>
+            {% for task in milestone.tasks %}
+                <div class="task">
+                    <h4>{{ task.name }}</h4>
+                    <p>{{ task.description }}</p>
+                    <p><strong>Status:</strong> {{ task.status }}</p>
+                    <p><strong>Due Date:</strong> {{ task.due_date }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</body>
+</html>

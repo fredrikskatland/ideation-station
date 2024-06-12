@@ -11,11 +11,12 @@ export const useAuthStore = defineStore('auth', {
     ideas: []
   }),
   actions: {
-    login(user) {
+    login(user, router) {
       this.user = user;
       this.isLoggedIn = true;
       localStorage.setItem('user', JSON.stringify(user));
       this.fetchIdeas();
+      router.push('/workspace'); // Redirect to workspace
     },
     logout() {
       this.user = null;
@@ -40,14 +41,14 @@ export const useAuthStore = defineStore('auth', {
         this.ideas = records.map(record => ({
           id: record.id,
           topic: record.idea_output.topic,
-          headline: record.idea_output.markdown.headline,
-          description: record.idea_output.markdown.description,
-          target_audience: record.idea_output.markdown.target_audience,
-          pricing: record.idea_output.markdown.pricing,
-          marketing: record.idea_output.markdown.marketing,
-          stand_out: record.idea_output.markdown.stand_out,
-          dos: record.idea_output.markdown.dos,
-          donts: record.idea_output.markdown.donts,
+          headline: record.idea_output.concept.headline,
+          description: record.idea_output.concept.description,
+          target_audience: record.idea_output.concept.target_audience,
+          pricing: record.idea_output.concept.pricing,
+          marketing: record.idea_output.concept.marketing,
+          stand_out: record.idea_output.concept.stand_out,
+          dos: record.idea_output.concept.dos,
+          donts: record.idea_output.concept.donts,
           milestone_plan: record.idea_output.plans.milestone_plan,
           gant_chart: record.idea_output.plans.gant_chart,
           raid_chart: record.idea_output.plans.raid_chart,

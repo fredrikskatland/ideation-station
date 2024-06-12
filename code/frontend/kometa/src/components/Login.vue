@@ -91,12 +91,14 @@
 import { ref } from 'vue';
 import PocketBase from 'pocketbase';
 import { useAuthStore } from '../store';  // adjust the path if needed
+import { useRouter } from 'vue-router';
 
 const username = ref("");
 const password = ref("");
 
 const pb = new PocketBase('http://127.0.0.1:8090');
 const authStore = useAuthStore();
+const router = useRouter();
 
 const doLogin = async () => {
   try {
@@ -104,7 +106,7 @@ const doLogin = async () => {
     console.log(pb.authStore.isValid);
     console.log(pb.authStore.token);
     console.log(pb.authStore.model);
-    authStore.login(pb.authStore.model);
+    authStore.login(pb.authStore.model, router);
   } catch (error) {
     alert(error.message);
   }
@@ -113,7 +115,7 @@ const doLogin = async () => {
 const handleGoogleLogin = async () => {
   try {
     const authData = await pb.collection('users').authWithOAuth2({ provider: 'google' });
-    authStore.login(pb.authStore.model);
+    authStore.login(pb.authStore.model, router);
     alert('Logged in with Google successfully');
   } catch (error) {
     console.error('Error logging in with Google:', error);
