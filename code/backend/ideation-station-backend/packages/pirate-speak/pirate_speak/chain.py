@@ -85,8 +85,8 @@ class BusinessConcept(BaseModel):
     pricing: str = Field(description="How to price the business or product")
     marketing: str = Field(description="How to market the business or product")
     stand_out: str = Field(description="How to make the business or product stand out from competitors")
-    dos: str = Field(description="List of dos for the concept")
-    donts: str = Field(description="List of don'ts for the concept")
+    dos: List[str] = Field(description="List of dos for the concept")
+    donts: List[str] = Field(description="List of don'ts for the concept")
 
 class BusinessPlan(BaseModel):
     milestone_plan: MilestonePlan = Field(description="Milestone plan for the business or product")
