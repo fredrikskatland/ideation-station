@@ -2,7 +2,12 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 from langserve import add_routes
-from pirate_speak.chain import complete_chain, chain as pirate_chain
+from pirate_speak.chains import (
+    complete_chain, 
+    complete_idea_concept_chain as idea_concept_chain,
+    complete_idea_details_chain as idea_details_chain,
+    complete_idea_plans_chain as idea_plans_chain
+)
 
 app = FastAPI()
 
@@ -25,7 +30,10 @@ async def redirect_root_to_docs():
 
 
 # Edit this to add the chain you want to add
-add_routes(app, complete_chain, path="/pirate-speak")
+add_routes(app, complete_chain, path="/complete-chain")
+add_routes(app, idea_concept_chain, path="/idea-concept-chain")
+add_routes(app, idea_details_chain, path="/idea-details-chain")
+add_routes(app, idea_plans_chain, path="/idea-plans-chain")
 
 if __name__ == "__main__":
     import uvicorn

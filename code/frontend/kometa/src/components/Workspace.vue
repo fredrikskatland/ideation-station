@@ -26,9 +26,16 @@
           />
           <button
             type="submit"
-            class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide  transition duration-200 rounded shadow-md md:w-auto bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+            class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide  transition duration-200 rounded shadow-md md:w-auto bg-weather-primary hover:bg-weather-secondary focus:shadow-outline focus:outline-none text-white"
           >
-            Submit
+          <span v-if="!loading" >Submit</span>
+            <span v-else class="flex items-center">
+            <svg class="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+            </svg>
+            Loading...
+          </span>
           </button>
         </form>
       </div>
@@ -80,38 +87,14 @@ const pb = new PocketBase('http://127.0.0.1:8090');  // Initialize PocketBase cl
 const authStore = useAuthStore();
 
 // Reactive state
-const inputData = ref('');
-const headline = ref(null);
-const description = ref(null);
-const target_audience = ref(null);
-const pricing = ref(null);
-const marketing = ref(null);
-const stand_out = ref(null);
-const dos = ref(null);
-const donts = ref(null);
-const milestone_plan = ref(null);
-const gant_chart = ref(null);
-const raid_chart = ref(null);
-const task_table = ref(null);
 const loading = ref(false);
+const inputData = ref('');
 
 const handleSubmit = async () => {
   loading.value = true;
-  headline.value = null;
-  description.value = null;
-  target_audience.value = null;
-  pricing.value = null;
-  marketing.value = null;
-  stand_out.value = null;
-  dos.value = null;
-  donts.value = null;
-  milestone_plan.value = null;
-  gant_chart.value = null;
-  raid_chart.value = null;
-  task_table.value = null;
 
   try {
-    const res = await fetch('http://localhost:8000/pirate-speak/invoke', {
+    const res = await fetch('http://localhost:8000/idea-concept-chain/invoke', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -125,19 +108,6 @@ const handleSubmit = async () => {
 
     const jsonResponse = await res.json();
 
-    // headline.value = marked(jsonResponse.output.markdown.headline, null, 2);
-    // description.value = marked(jsonResponse.output.markdown.description, null, 2);
-    // target_audience.value = marked(jsonResponse.output.markdown.target_audience, null, 2);
-    // pricing.value = marked(jsonResponse.output.markdown.pricing, null, 2);
-    // marketing.value = marked(jsonResponse.output.markdown.marketing, null, 2);
-    // stand_out.value = marked(jsonResponse.output.markdown.stand_out, null, 2);
-    // dos.value = marked(jsonResponse.output.markdown.dos, null, 2);
-    // donts.value = marked(jsonResponse.output.markdown.donts, null, 2);
-    // milestone_plan.value = marked(jsonResponse.output.plans.milestone_plan, null, 2);
-    // gant_chart.value = marked(jsonResponse.output.plans.gant_chart, null, 2);
-    // raid_chart.value = marked(jsonResponse.output.plans.raid_chart, null, 2);
-    // task_table.value = marked(jsonResponse.output.plans.task_table, null, 2);
-
     const data = {
       idea_output: jsonResponse.output,
       user_id: pb.authStore.model.id,
@@ -147,7 +117,6 @@ const handleSubmit = async () => {
 
     await pb.collection('ideas').create(data);
 
-    // This doesnt work yet:
     authStore.fetchIdeas();
 
   } catch (error) {

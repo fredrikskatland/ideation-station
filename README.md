@@ -2,6 +2,26 @@
 Repository for ideation digital product idea
 
 
+## Costs:
+- Domain: 1111,24 NOK
+- Opprettelse av selskap: 2499 NOK
+- Github Copilot: 200 NOK
+- ChatGPT Plus: 200 NOK
+- OpenAI tokens: 0 NOK
+- AWS hosting: 0 NOK
+- AWS other: 0 NOK
+- Stripe: 0 NOK
+- Paid Ads: 0 NOK
+
+Total: 4010,24 NOK
+
+## Sales:
+
+0 x 50 NOK = 0 NOK
+
+## Time spent (hours):
+- Fredrik: 30 hours
+
 ## Tasks
 
 ### Features
@@ -10,9 +30,10 @@ Repository for ideation digital product idea
 - [x] Basic user authentication
 - [x] Basic langserve/langchain backend
 - [x] Langchain Json output
-- [ ] Split langchain backend into separate services for performance
-- [ ] Organize backend code into separate services, prompts and utils
+- [x] Split langchain backend into separate services for performance
+- [x] Organize backend code into separate services, prompts and utils
 - [ ] Implement "re-do" feature for prompts
+- [x] Update idea data model: idea versions and idea details
 
 #### Frontend
 - [x] Basic Vue frontend
@@ -25,7 +46,7 @@ Repository for ideation digital product idea
 - [ ] Advance idea features
 - [ ] re-do idea feature
 - [ ] export idea documents feature
-- [ ] stepwise idea creation feature (from headline and description to add section [target audience, marketing, pricing, dos and donts], [gantt chart, milestone chart, raid chart, etc.])
+- [x] stepwise idea creation feature (from headline and description to add section [target audience, marketing, pricing, dos and donts], [gantt chart, milestone chart, raid chart, etc.])
 - [ ] Implement streaming of langchain output to frontend
 - [ ] Fix bugs
 - [ ] Implement Stripe for payment
@@ -39,14 +60,15 @@ Repository for ideation digital product idea
 - [ ] Setup CI/CD for frontend
 
 ### Admin
-- [ ] Create ENK
+- [x] Create ENK
 - [ ] Setup OpenAI for ENK
 - [ ] Setup AWS for ENK
 - [ ] Setup Stripe for ENK
 - [ ] Setup Google Analytics for ENK
 - [ ] Setup Budget for ENK
 - [ ] Setup fredrikskatland.com for ENK
-- [ ] Aquire domain for Ideation Station
+- [x] Aquire domain for Ideation Station: ideationstation.ai on one.com
+- [x]  Backdrop build signup
 
 ### Marketing
 - [ ] Create launch plan
@@ -56,6 +78,7 @@ Repository for ideation digital product idea
 - [ ] Research IndieHackers
 - [ ] Create product demo on youtube
 - [ ] Product hook on webpage
+- [ ] Launch with Backdrop build
 
 ### Testing
 - [ ] Create test plan
