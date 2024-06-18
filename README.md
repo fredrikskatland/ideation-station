@@ -43,7 +43,7 @@ Total: 4010,24 NOK
 - [x] Basic idea features
 - [ ] About page
 - [ ] Contact page
-- [ ] Advance idea features
+- [x] Advance idea features
 - [ ] re-do idea feature
 - [ ] export idea documents feature
 - [x] stepwise idea creation feature (from headline and description to add section [target audience, marketing, pricing, dos and donts], [gantt chart, milestone chart, raid chart, etc.])

@@ -17,6 +17,13 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 
+// import primevue
+import PrimeVue from 'primevue/config';
+
+
+
+
+
 // Add icons to the library
 library.add(fas, far, fab)
 
@@ -29,6 +36,11 @@ app.use(router)
 
 // Use the Pinia store
 app.use(pinia)
+
+// Use the PrimeVue plugin
+app.use(PrimeVue, {
+    unstyled: true
+});
 
 // Register the Font Awesome component globally
 app.component('font-awesome-icon', FontAwesomeIcon)

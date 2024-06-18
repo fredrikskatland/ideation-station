@@ -4,8 +4,8 @@ from langchain_openai import ChatOpenAI
 from langchain_core.runnables import RunnablePassthrough
 #from langchain_anthropic import ChatAnthropic
 
-from pirate_speak.prompts import concept_prompt, plan_prompt, idea_concept_prompt, idea_details_prompt
-from pirate_speak.parsers import concept_parser, plan_parser, idea_concept_parser, idea_details_parser
+from pirate_speak.prompts import concept_prompt, plan_prompt, idea_concept_prompt, idea_details_prompt, idea_quality_prompt
+from pirate_speak.parsers import concept_parser, plan_parser, idea_concept_parser, idea_details_parser, idea_quality_parser
 
 gpt4 = ChatOpenAI(model="gpt-4o")
 #claud3 = ChatAnthropic(model='claude-3-opus-20240229')
@@ -51,3 +51,13 @@ complete_idea_plans_chain = ({
     }
     | RunnablePassthrough.assign(plans=idea_plans_chain)
 )
+
+idea_quality_chain = idea_quality_prompt | gpt4 | idea_quality_parser
+
+complete_idea_quality_chain = ({
+    "concept_description": itemgetter("concept_details"),
+    "quality": idea_quality_chain
+    }
+    | RunnablePassthrough.assign(quality=idea_quality_chain)
+)
+

@@ -6,7 +6,8 @@ from pirate_speak.chains import (
     complete_chain, 
     complete_idea_concept_chain as idea_concept_chain,
     complete_idea_details_chain as idea_details_chain,
-    complete_idea_plans_chain as idea_plans_chain
+    complete_idea_plans_chain as idea_plans_chain,
+    complete_idea_quality_chain as idea_quality_chain,
 )
 
 app = FastAPI()
@@ -34,6 +35,7 @@ add_routes(app, complete_chain, path="/complete-chain")
 add_routes(app, idea_concept_chain, path="/idea-concept-chain")
 add_routes(app, idea_details_chain, path="/idea-details-chain")
 add_routes(app, idea_plans_chain, path="/idea-plans-chain")
+add_routes(app, idea_quality_chain, path="/idea-quality-chain")
 
 if __name__ == "__main__":
     import uvicorn

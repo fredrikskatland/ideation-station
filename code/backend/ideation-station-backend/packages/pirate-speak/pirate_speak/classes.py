@@ -94,3 +94,9 @@ class IdeaDetails(BaseModel):
     dos: List[str] = Field(description="List of dos for the concept")
     donts: List[str] = Field(description="List of don'ts for the concept")
 
+class IdeaQuality(BaseModel):
+    originality: float = Field(description="How original is the idea, totally unique or copy-cat. Give a rating from 0 to 100 where 0 is complete copy and 100 is totally unique")    
+    feasibility: float = Field(description="Feasibility of the idea. Give a rating from 0 to 100 where 0 is not feasible and 100 is totally feasible")
+    difficulty: float = Field(description="Technical difficulty executing the idea. Give a rating from 0 to 100 where 0 very easy and 100 very difficult")
+    profitability: float = Field(description="Profitability of the idea. How easy is it to monetize this idea? Give a rating from 0 to 100 where 0 is not profitable and 100 is very profitable")
+    description: str = Field(description="Brief rundown of reasons and arguments for the ratings")
