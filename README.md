@@ -52,12 +52,12 @@ Total: 4010,24 NOK
 - [ ] Implement Stripe for payment
 
 #### Deployment
-- [ ] Dockerize all services
-- [ ] Deploy pocketbase backend to AWS
-- [ ] Deploy langserve backend to AWS
-- [ ] Deploy frontend to AWS
+- [x] Dockerize backend services
+- [x] Deploy pocketbase backend to Fly.io
+- [x] Deploy langserve backend to Fly.io
+- [x] Deploy frontend to Vercel
 - [ ] Setup CI/CD for backend
-- [ ] Setup CI/CD for frontend
+- [x] Setup CI/CD for frontend
 
 ### Admin
 - [x] Create ENK

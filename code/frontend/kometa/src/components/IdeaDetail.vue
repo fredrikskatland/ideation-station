@@ -182,7 +182,7 @@
   const generateDetails = async () => {
     loading_details.value = true;
     try {
-      const res = await fetch('http://127.0.0.1:8000/idea-details-chain/invoke', {
+      const res = await fetch('https://ideation-station-langserve.fly.dev/idea-details-chain/invoke', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -233,7 +233,7 @@
     loading_quality.value = true;
     let payload = idea.value.description + '\n\n' + idea_details.value.target_audience + '\n\n' + idea_details.value.pricing + '\n\n' + idea_details.value.marketing + '\n\n' + idea_details.value.stand_out + '\n\n' + idea_details.value.dos + '\n\n' + idea_details.value.donts;
     try {
-      const res = await fetch('http://127.0.0.1:8000/idea-quality-chain/invoke', {
+      const res = await fetch('https://ideation-station-langserve.fly.dev/idea-quality-chain/invoke', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -287,7 +287,7 @@
       // Create text string from idea and idea details. Add headlines and linebreaks. 
       let payload = idea.value.description + '\n\n' + idea_details.value.target_audience + '\n\n' + idea_details.value.pricing + '\n\n' + idea_details.value.marketing + '\n\n' + idea_details.value.stand_out + '\n\n' + idea_details.value.dos + '\n\n' + idea_details.value.donts;
   
-      const res = await fetch('http://127.0.0.1:8000/idea-plans-chain/invoke', {
+      const res = await fetch('https://ideation-station-langserve.fly.dev/idea-plans-chain/invoke', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
