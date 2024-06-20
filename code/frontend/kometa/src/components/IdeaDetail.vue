@@ -142,7 +142,7 @@
   } from '../services/apiService';
   import PocketBase from 'pocketbase';
 
-  const pb = new PocketBase('http://127.0.0.1:8090');
+  const pb = new PocketBase(import.meta.env.VITE_POCKETBASE_URL || 'http://127.0.0.1:8090');
   const activeTab = ref('first')
   const theme = 'green'
   const loading_details = ref(false);
@@ -168,6 +168,8 @@
       console.log(idea_plans.value)
       idea_quality.value = await fetchIdeaQuality(route.params.id);
       console.log(idea_quality.value)
+      // env variable
+      console.log("PocketBase url", import.meta.env.VITE_POCKETBASE_URL);
     } catch (error) {
       console.error('Error fetching data:', error);
     } finally {

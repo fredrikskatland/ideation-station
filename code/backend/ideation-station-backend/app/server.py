@@ -15,6 +15,7 @@ app = FastAPI()
 origins = [
     "http://localhost:5173",  # Vue app
     "http://localhost:8000",  # FastAPI server (change to your FastAPI server URL)
+    "https://ideation-station.vercel.app",  # Vercel deployment
 ]
 
 app.add_middleware(

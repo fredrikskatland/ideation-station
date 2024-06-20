@@ -83,7 +83,7 @@ import { useAuthStore } from '../store';  // adjust the path if needed
 import PocketBase from 'pocketbase';
 import { marked } from 'marked';  // Use named import for 'marked'
 
-const pb = new PocketBase('http://127.0.0.1:8090');  // Initialize PocketBase client
+const pb = new PocketBase(import.meta.env.VITE_POCKETBASE_URL || 'http://127.0.0.1:8090');  // Initialize PocketBase client
 const authStore = useAuthStore();
 
 // Reactive state

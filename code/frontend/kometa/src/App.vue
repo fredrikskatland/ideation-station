@@ -6,7 +6,6 @@
 <script setup>
   import { ref, onMounted } from 'vue';
   import Nav from './components/Nav.vue'
-  import HelloWorld from './components/HelloWorld.vue'
   import PocketBase from 'pocketbase';
 
   let pb = null;

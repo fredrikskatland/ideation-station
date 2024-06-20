@@ -16,12 +16,12 @@
             </defs>
             <rect fill="url(#ea469ae8-e6ec-4aca-8875-fc402da4d16e)" width="52" height="24"></rect>
           </svg>
-          <span class="relative">The</span>
+          <span class="relative">Develop</span>
         </span>
-        quick, brown fox jumps over a lazy dog
+        your interest and ideas into plans
       </h2>
       <p class="text-base text-gray-700 md:text-lg">
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque ipsa quae.
+        Curious to how your ideas can become projects, or even products or businesses? Get a kick start here!
       </p>
     </div>
     <div class="grid gap-8 row-gap-10 lg:grid-cols-2">
