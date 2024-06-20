@@ -63,5 +63,5 @@ We can access the template from code with:
 ```python
 from langserve.client import RemoteRunnable
 
-runnable = RemoteRunnable("http://localhost:8000/pirate-speak")
+runnable = RemoteRunnable("https://ideation-station-langserve.fly.dev/pirate-speak")
 ```

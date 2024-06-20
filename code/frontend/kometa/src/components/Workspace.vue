@@ -94,7 +94,7 @@ const handleSubmit = async () => {
   loading.value = true;
 
   try {
-    const res = await fetch('http://localhost:8000/idea-concept-chain/invoke', {
+    const res = await fetch('https://ideation-station-langserve.fly.dev/idea-concept-chain/invoke', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

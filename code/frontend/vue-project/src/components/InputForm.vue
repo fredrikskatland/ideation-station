@@ -93,7 +93,7 @@
 
 
                 try {
-                    const res = await fetch('http://localhost:8000/pirate-speak/invoke', {
+                    const res = await fetch('https://ideation-station-langserve.fly.dev/pirate-speak/invoke', {
                         method: 'POST',
                         headers: {
                         'Content-Type': 'application/json'

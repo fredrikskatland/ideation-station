@@ -13,7 +13,8 @@ python = "^3.11"
 uvicorn = "^0.23.2"
 langserve = {extras = ["server"], version = ">=0.0.30"}
 pydantic = "<2"
-pirate-speak = {path = "packages\\pirate-speak", develop = true}
+pirate-speak = {path = "packages/pirate-speak", develop = true}
+langchain-openai = "0.1.7"
 
 
 [tool.poetry.group.dev.dependencies]
