@@ -6,10 +6,10 @@
           <router-link to="/" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Product</router-link>
         </li>
         <li>
-          <router-link to="/" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Features</router-link>
+          <router-link to="/about" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">About</router-link>
         </li>
         <li>
-          <router-link to="/" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Pricing</router-link>
+          <router-link to="/Pricing" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Pricing</router-link>
         </li>
       </ul>
       <router-link to="/" class="inline-flex items-center lg:mx-auto">
