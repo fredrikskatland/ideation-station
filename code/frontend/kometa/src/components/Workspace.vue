@@ -82,6 +82,8 @@ import { ref } from 'vue';
 import { useAuthStore } from '../store';  // adjust the path if needed
 import PocketBase from 'pocketbase';
 import { marked } from 'marked';  // Use named import for 'marked'
+import { useRouter } from 'vue-router';
+
 
 const pb = new PocketBase(import.meta.env.VITE_POCKETBASE_URL || 'http://127.0.0.1:8090');  // Initialize PocketBase client
 const authStore = useAuthStore();
@@ -90,8 +92,22 @@ const authStore = useAuthStore();
 const loading = ref(false);
 const inputData = ref('');
 
+const router = useRouter();
+
+
 const handleSubmit = async () => {
   loading.value = true;
+  const currentCredits = pb.authStore.model.credits;
+  // Throw Error if user has no credits. Give altert and set loading to false and redirect to /pricing
+  if (currentCredits < 1) {
+    loading.value = false;
+    alert('You have no credits left. Please buy more credits.');
+    router.push('/pricing');
+    return;
+  }
+  const updatedCredits = currentCredits - 1;
+  const updatedUser = await pb.collection('users').update(pb.authStore.model.id, { credits: updatedCredits });
+  pb.authStore.model.credits = updatedCredits;
 
   try {
     const res = await fetch('https://ideation-station-langserve.fly.dev/idea-concept-chain/invoke', {
