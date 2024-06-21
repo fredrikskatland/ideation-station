@@ -34,6 +34,10 @@ Total: 4010,24 NOK
 - [x] Organize backend code into separate services, prompts and utils
 - [ ] Implement "re-do" feature for prompts
 - [x] Update idea data model: idea versions and idea details
+- [ ] Credit system: remaining credits
+- [ ] Credit system: initialize credits for new users
+- [ ] Credit system: Add credits
+- [ ] Feedback/contact form
 
 #### Frontend
 - [x] Basic Vue frontend
@@ -41,7 +45,7 @@ Total: 4010,24 NOK
 - [x] Workspace page
 - [x] IdeaDetails page
 - [x] Basic idea features
-- [ ] About page
+- [x] About page
 - [ ] Contact page
 - [x] Advance idea features
 - [ ] re-do idea feature
@@ -50,6 +54,10 @@ Total: 4010,24 NOK
 - [ ] Implement streaming of langchain output to frontend
 - [ ] Fix bugs
 - [ ] Implement Stripe for payment
+- [ ] Credits: show remaining credits
+- [ ] Credits: buy credits
+- [ ] Credit system: initialize credits for new users
+- [ ] Feedback/contact form
 
 #### Deployment
 - [x] Dockerize backend services
