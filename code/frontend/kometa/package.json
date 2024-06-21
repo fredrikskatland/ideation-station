@@ -22,6 +22,7 @@
     "pocketbase": "^0.21.3",
     "primevue": "^3.52.0",
     "vue": "^3.4.21",
+    "vue-lite-youtube-embed": "^1.2.4",
     "vue-router": "^4.0.13"
   },
   "devDependencies": {

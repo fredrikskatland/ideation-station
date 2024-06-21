@@ -68,7 +68,8 @@ Total: 4010,24 NOK
 - [ ] Setup Budget for ENK
 - [ ] Setup fredrikskatland.com for ENK
 - [x] Aquire domain for Ideation Station: ideationstation.ai on one.com
-- [x]  Backdrop build signup
+- [x] Backdrop build signup
+- [ ] DNS setup for ideationstation.ai on one.com and cloudflare 
 
 ### Marketing
 - [ ] Create launch plan
@@ -76,7 +77,8 @@ Total: 4010,24 NOK
 - [ ] Research Reddit
 - [ ] Research HackerNews
 - [ ] Research IndieHackers
-- [ ] Create product demo on youtube
+- [X] Create product demo on youtube
+- [ ] Improve product demo
 - [ ] Product hook on webpage
 - [ ] Launch with Backdrop build
 
@@ -84,3 +86,12 @@ Total: 4010,24 NOK
 - [ ] Create test plan
 - [ ] Create test cases
 - [ ] Sarah, Jørgen, Filip, Marius, Randoms?
+
+
+### Third party integrations/dependencies
+- [x] OpenAI (langserve)
+- [ ] Stripe (payment)
+- [x] Vercel (frontend)
+- [x] Fly.io (backend, db and langserve)
+- [x] GitHub (codebase)
+- [ ] Google Analytics (marketing analytics)

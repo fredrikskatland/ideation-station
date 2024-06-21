@@ -10,69 +10,31 @@
         <span class="relative inline-block">
           <svg viewBox="0 0 52 24" fill="currentColor" class="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-blue-gray-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block">
             <defs>
-              <pattern id="ea469ae8-e6ec-4aca-8875-fc402da4d16e" x="0" y="0" width=".135" height=".30">
+              <pattern id="679d5905-e08c-4b91-a66c-84aefbb9d2f5" x="0" y="0" width=".135" height=".30">
                 <circle cx="1" cy="1" r=".7"></circle>
               </pattern>
             </defs>
-            <rect fill="url(#ea469ae8-e6ec-4aca-8875-fc402da4d16e)" width="52" height="24"></rect>
+            <rect fill="url(#679d5905-e08c-4b91-a66c-84aefbb9d2f5)" width="52" height="24"></rect>
           </svg>
           <span class="relative">Develop</span>
         </span>
-        your interest and ideas into plans
+        your interest or ideas into product and business concepts in seconds.
       </h2>
       <p class="text-base text-gray-700 md:text-lg">
-        Curious to how your ideas can become projects, or even products or businesses? Get a kick start here!
+        Generate product or business concept, with plans, marketing, pricing, and dos and donts to help you succeed in creating it.
       </p>
     </div>
-    <div class="grid gap-8 row-gap-10 lg:grid-cols-2">
-      <div class="max-w-md sm:mx-auto sm:text-center">
-        <div class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 sm:mx-auto sm:w-24 sm:h-24">
-          <svg class="w-12 h-12 text-deep-purple-accent-400 sm:w-16 sm:h-16" stroke="currentColor" viewBox="0 0 52 52">
-            <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
-          </svg>
-        </div>
-        <h6 class="mb-3 text-xl font-bold leading-5">The deep ocean</h6>
-        <p class="mb-3 text-sm text-gray-900">
-          A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear. We never had the chance to.
-        </p>
-        <a href="/" aria-label="" class="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">Learn more</a>
-      </div>
-      <div class="max-w-md sm:mx-auto sm:text-center">
-        <div class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 sm:mx-auto sm:w-24 sm:h-24">
-          <svg class="w-12 h-12 text-deep-purple-accent-400 sm:w-16 sm:h-16" stroke="currentColor" viewBox="0 0 52 52">
-            <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
-          </svg>
-        </div>
-        <h6 class="mb-3 text-xl font-bold leading-5">When has justice</h6>
-        <p class="mb-3 text-sm text-gray-900">
-          Rough pomfret lemon shark plownose chimaera southern sandfish kokanee northern sea robin Antarctic cod. Yellow-and-black triplefin gulper South American Lungfish mahi-mahi, butterflyfish glass catfish soapfish ling gray mullet!
-        </p>
-        <a href="/" aria-label="" class="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">Learn more</a>
-      </div>
-      <div class="max-w-md sm:mx-auto sm:text-center">
-        <div class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 sm:mx-auto sm:w-24 sm:h-24">
-          <svg class="w-12 h-12 text-deep-purple-accent-400 sm:w-16 sm:h-16" stroke="currentColor" viewBox="0 0 52 52">
-            <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
-          </svg>
-        </div>
-        <h6 class="mb-3 text-xl font-bold leading-5">Organically grow</h6>
-        <p class="mb-3 text-sm text-gray-900">
-          A slice of heaven. O for awesome, this chocka full cuzzie is as rip-off as a cracker. Meanwhile, in behind the bicycle shed, Hercules Morse, as big as a horse and Mrs Falani were up to no good with a bunch of crook pikelets.
-        </p>
-        <a href="/" aria-label="" class="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">Learn more</a>
-      </div>
-      <div class="max-w-md sm:mx-auto sm:text-center">
-        <div class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 sm:mx-auto sm:w-24 sm:h-24">
-          <svg class="w-12 h-12 text-deep-purple-accent-400 sm:w-16 sm:h-16" stroke="currentColor" viewBox="0 0 52 52">
-            <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
-          </svg>
-        </div>
-        <h6 class="mb-3 text-xl font-bold leading-5">A slice of heaven</h6>
-        <p class="mb-3 text-sm text-gray-900">
-          Disrupt inspire and think tank, social entrepreneur but preliminary thinking think tank compelling. Inspiring, invest synergy capacity building, white paper; silo, unprecedented challenge B-corp problem-solvers.
-        </p>
-        <a href="/" aria-label="" class="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">Learn more</a>
+    <div class="mx-auto lg:max-w-2xl">
+      <div class="relative w-full transition-shadow duration-300 hover:shadow-xl">
+        <LiteYouTubeEmbed
+        id="ifvAqmpKU6c"
+        title="Ideation Station App Demo"
+      />
       </div>
     </div>
   </div>
 </template>
+<script setup>
+import LiteYouTubeEmbed from 'vue-lite-youtube-embed'
+import 'vue-lite-youtube-embed/style.css'
+</script>
