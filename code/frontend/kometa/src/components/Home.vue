@@ -32,9 +32,11 @@
       />
       </div>
     </div>
+    <HowItWorks />
   </div>
 </template>
 <script setup>
 import LiteYouTubeEmbed from 'vue-lite-youtube-embed'
 import 'vue-lite-youtube-embed/style.css'
+import HowItWorks from './HowItWorks.vue';
 </script>

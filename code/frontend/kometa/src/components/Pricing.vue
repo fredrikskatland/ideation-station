@@ -18,7 +18,7 @@
             </svg>
             <span class="relative">Transparent</span>
           </span>
-          pricing. Try for Free, Upgrade When Ready.
+          pricing. Try for Free, Upgrade when ready.
         </h2>
         <p class="text-base text-gray-700 md:text-lg">
           Try it out for free! When you sign up you get 10 credits. For additional credits and features, you can upgrade to a paid plan.

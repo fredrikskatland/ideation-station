@@ -5,6 +5,7 @@ import Workspace from '../components/Workspace.vue'
 import IdeaDetail from '../components/IdeaDetail.vue'
 import About from '../components/About.vue'
 import Pricing from '../components/Pricing.vue'
+import Product from '../components/Product.vue'
 
 const routes = [
   { path: '/', component: Home },
@@ -12,6 +13,7 @@ const routes = [
   { path: '/workspace', component: Workspace },
   { path: '/about', component: About },
   { path: '/pricing', component: Pricing },
+  { path: '/product', component: Product },
   { path: '/idea/:id', component: IdeaDetail, props: true },
 ]
 
