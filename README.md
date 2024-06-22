@@ -34,10 +34,10 @@ Total: 4010,24 NOK
 - [x] Organize backend code into separate services, prompts and utils
 - [ ] Implement "re-do" feature for prompts
 - [x] Update idea data model: idea versions and idea details
-- [ ] Credit system: remaining credits
+- [x] Credit system: remaining credits
 - [ ] Credit system: initialize credits for new users
 - [ ] Credit system: Add credits
-- [ ] Feedback/contact form
+- [x] Feedback/contact form
 
 #### Frontend
 - [x] Basic Vue frontend
@@ -46,7 +46,6 @@ Total: 4010,24 NOK
 - [x] IdeaDetails page
 - [x] Basic idea features
 - [x] About page
-- [ ] Contact page
 - [x] Advance idea features
 - [ ] re-do idea feature
 - [ ] export idea documents feature
@@ -54,17 +53,17 @@ Total: 4010,24 NOK
 - [ ] Implement streaming of langchain output to frontend
 - [ ] Fix bugs
 - [ ] Implement Stripe for payment
-- [ ] Credits: show remaining credits
+- [x] Credits: show remaining credits
 - [ ] Credits: buy credits
 - [ ] Credit system: initialize credits for new users
-- [ ] Feedback/contact form
+- [x] Feedback/contact form
 
 #### Deployment
 - [x] Dockerize backend services
 - [x] Deploy pocketbase backend to Fly.io
 - [x] Deploy langserve backend to Fly.io
 - [x] Deploy frontend to Vercel
-- [ ] Setup CI/CD for backend
+- [ ] Setup CI/CD for backend (langserve)
 - [x] Setup CI/CD for frontend
 
 ### Admin
@@ -102,4 +101,4 @@ Total: 4010,24 NOK
 - [x] Vercel (frontend)
 - [x] Fly.io (backend, db and langserve)
 - [x] GitHub (codebase)
-- [ ] Google Analytics (marketing analytics)
+- [x] Google Analytics (marketing analytics)
