@@ -6,6 +6,7 @@ import IdeaDetail from '../components/IdeaDetail.vue'
 import About from '../components/About.vue'
 import Pricing from '../components/Pricing.vue'
 import Product from '../components/Product.vue'
+import Feedback from '../components/Feedback.vue'
 
 const routes = [
   { path: '/', component: Home },
@@ -14,6 +15,7 @@ const routes = [
   { path: '/about', component: About },
   { path: '/pricing', component: Pricing },
   { path: '/product', component: Product },
+  { path: '/feedback', component: Feedback },
   { path: '/idea/:id', component: IdeaDetail, props: true },
 ]
 

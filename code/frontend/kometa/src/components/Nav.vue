@@ -11,6 +11,9 @@
         <li>
           <router-link to="/Pricing" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Pricing</router-link>
         </li>
+        <li>
+          <router-link to="/Feedback" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Feedback</router-link>
+        </li>
       </ul>
       <router-link to="/" class="inline-flex items-center lg:mx-auto">
         <font-awesome-icon icon="lightbulb" class="text-2xl text-gray-800" />
