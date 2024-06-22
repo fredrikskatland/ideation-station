@@ -11,11 +11,11 @@
           </div>
           <div class="lg:w-1/2">
             <p class="mb-4 text-base text-gray-700">
-                Yes, this is a GPT-4 wrapper. It takes your input, passes it to a prompt templates, and then to the GPT-4 model. The prompt is designed to provide a response that is original 
-                , and help you as a creator or builder analyze the different aspects of brining the idea to life. The output is processed with an output parser to give a tidy and structured output, 
-                which is displayed nicely in the app.       
+              Yes, this is a GPT-4 wrapper. 
+              It accepts your input, processes it through a prompt template, and forwards it to the GPT-4 model. 
+              The prompt is designed to create an original response and help you, as a creator or builder, examine the various aspects of realizing your idea. 
+              The output is parsed to ensure a tidy and structured result, which is then displayed nicely in the app.      
             </p>
-            <a href="/" aria-label="" class="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">Learn more</a>
           </div>
         </div>
       </div>

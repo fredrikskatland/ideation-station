@@ -3,13 +3,13 @@
       <div class="flex flex-col mb-6 lg:flex-row md:mb-10">
         <div class="lg:w-1/2">
           <h2 class="max-w-md mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none xl:max-w-lg">
-            Who is the potential users of this app?
+            Who might find this app useful?
           </h2>
         </div>
         <div class="lg:w-1/2">
           <p class="text-base text-gray-700 md:text-lg">
-            This app is for anyone that wants to explore how their ideas or interests can be developed into business or product concepts. 
-            It is for people that want to explore the possibilities of their ideas, and get a fresh perspective on how to develop them further and push your creativity.
+            This app is for those curious about turning their ideas or interests into business or product concepts. 
+            It is perfect for people looking to explore the potential of their ideas and gain new perspectives on how to develop them and enhance their creativity.
           </p>
         </div>
       </div>
@@ -48,7 +48,6 @@
               Differentiation
             </li>
           </ul>
-          <a href="/" aria-label="" class="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">Learn more</a>
         </div>
         <div>
           <div class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50">
@@ -84,7 +83,6 @@
               Pitfalls
             </li>
           </ul>
-          <a href="/" aria-label="" class="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">Learn more</a>
         </div>
         <div>
           <div class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50">
@@ -120,7 +118,6 @@
               Viability
             </li>
           </ul>
-          <a href="/" aria-label="" class="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">Learn more</a>
         </div>
         <div>
           <div class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50">
@@ -156,7 +153,6 @@
               Push
             </li>
           </ul>
-          <a href="/" aria-label="" class="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">Learn more</a>
         </div>
       </div>
     </div>
