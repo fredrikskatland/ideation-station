@@ -4,6 +4,8 @@ import { createPinia } from 'pinia';
 import './index.css'
 import App from './App.vue'
 import router from './router'
+import { useAuthStore } from './store'
+
 
 
 // Import Font Awesome core
@@ -19,10 +21,6 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 
 // import primevue
 import PrimeVue from 'primevue/config';
-
-
-
-
 
 // Add icons to the library
 library.add(fas, far, fab)
@@ -46,3 +44,7 @@ app.use(PrimeVue, {
 app.component('font-awesome-icon', FontAwesomeIcon)
 
 app.mount('#app')
+
+// Check authentication on app initialization
+const authStore = useAuthStore();
+authStore.checkAuth();
