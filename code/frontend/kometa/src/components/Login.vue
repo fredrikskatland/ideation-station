@@ -115,7 +115,11 @@ const doLogin = async () => {
 const handleGoogleLogin = async () => {
   try {
     const authData = await pb.collection('users').authWithOAuth2({ provider: 'google' });
-    authStore.login(pb.authStore.model, router);
+    const user = authData.record; // Extract user data
+    const meta = authData.meta;
+    const avatar = meta.avatarUrl; // Assuming the user data contains an avatar URL
+    user.avatar = avatar; // Add avatar URL to user object
+    authStore.login(user, router);
     alert('Logged in with Google successfully');
   } catch (error) {
     console.error('Error logging in with Google:', error);

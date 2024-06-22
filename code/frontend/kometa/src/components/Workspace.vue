@@ -106,10 +106,11 @@ const handleSubmit = async () => {
     return;
   }
   const updatedCredits = currentCredits - 1;
-  const updatedUser = await pb.collection('users').update(pb.authStore.model.id, { credits: updatedCredits });
-  pb.authStore.model.credits = updatedCredits;
+  //const updatedUser = await pb.collection('users').update(pb.authStore.model.id, { credits: updatedCredits });
+  //pb.authStore.model.credits = updatedCredits;
 
   try {
+    authStore.updateCredits(updatedCredits);
     const res = await fetch('https://ideation-station-langserve.fly.dev/idea-concept-chain/invoke', {
       method: 'POST',
       headers: {

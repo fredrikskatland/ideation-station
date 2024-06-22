@@ -68,6 +68,10 @@ export const useAuthStore = defineStore('auth', {
       } catch (error) {
         console.error('Error fetching ideas:', error);
       }
+    },
+    updateCredits(newCredits) {
+      this.user.credits = newCredits;
     }
+    
   },
 });

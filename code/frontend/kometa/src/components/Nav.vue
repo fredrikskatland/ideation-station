@@ -22,6 +22,14 @@
             <router-link to="/workspace" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Workspace</router-link>
           </li>
           <li>
+            <img :src="authStore.user.avatar" alt="User Avatar" class="w-8 h-8 rounded-full" />
+          </li>
+          <!-- Number of credits left. Inside a white cicle -->
+          <li>
+            <span class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400 bg-white rounded-full p-2">
+              {{ authStore.user.credits }}</span>
+          </li>
+          <li>
             <button @click="authStore.logout" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Logout</button>
           </li>
         </template>
@@ -106,4 +114,5 @@ import { useAuthStore } from '../store';  // adjust the path if needed
 
 const isMenuOpen = ref(false);
 const authStore = useAuthStore();
+
 </script>
