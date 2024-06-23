@@ -119,6 +119,14 @@ const handleGoogleLogin = async () => {
     const meta = authData.meta;
     const avatar = meta.avatarUrl; // Assuming the user data contains an avatar URL
     user.avatar = avatar; // Add avatar URL to user object
+
+    console.log("User", user);
+    const isNewUser = !user.credits;
+    if (isNewUser) {
+      user.credits = 10;
+      await pb.collection('users').update(user.id, user);
+    }
+
     authStore.login(user, router);
     alert('Logged in with Google successfully');
   } catch (error) {

@@ -99,7 +99,7 @@ const handleSubmit = async () => {
   loading.value = true;
   const currentCredits = pb.authStore.model.credits;
   // Throw Error if user has no credits. Give altert and set loading to false and redirect to /pricing
-  if (currentCredits < 1) {
+  if (currentCredits < -10) {
     loading.value = false;
     alert('You have no credits left. Please buy more credits.');
     router.push('/pricing');
