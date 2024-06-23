@@ -6,6 +6,8 @@ import App from './App.vue'
 import router from './router'
 import { useAuthStore } from './store'
 
+// Vercel analytics
+import { inject } from "@vercel/analytics";
 
 
 // Import Font Awesome core
@@ -48,3 +50,6 @@ app.mount('#app')
 // Check authentication on app initialization
 const authStore = useAuthStore();
 authStore.checkAuth();
+
+// Inject Vercel analytics
+inject();
