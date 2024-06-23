@@ -24,7 +24,7 @@
             </h2>
             <p class="text-base text-gray-700 md:text-lg">
               You need to log in to leave feedback.
-              <a href="/login" class="text-weather-primary">Login here</a>
+              <router-link to="/login" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Log in here</router-link>
             </p>
           </div>
           <form @submit.prevent="submitFeedback" class="flex flex-col items-center w-full mb-4 md:flex-row md:px-16">
