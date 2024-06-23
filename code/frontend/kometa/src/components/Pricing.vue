@@ -81,12 +81,7 @@
             </div>
           </div>
           <div>
-            <a
-              href="/login"
-              class="inline-flex items-center justify-center w-full h-12 px-6 mb-4 font-medium tracking-wide text-white transition duration-200 bg-weather-secondary rounded shadow-md hover:bg-gray-900 focus:shadow-outline focus:outline-none"
-            >
-              Start for free
-            </a>
+            <router-link to="/login"  class="inline-flex items-center justify-center w-full h-12 px-6 mb-4 font-medium tracking-wide text-white transition duration-200 bg-weather-secondary rounded shadow-md hover:bg-gray-900 focus:shadow-outline focus:outline-none">Start for free</router-link>
             <p class="text-sm text-gray-600">
               Check it out, see if it's valuable to you.
             </p>
