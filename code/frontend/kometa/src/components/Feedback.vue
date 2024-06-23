@@ -23,7 +23,8 @@
               ideas, suggestions or complaints, leave them here.
             </h2>
             <p class="text-base text-gray-700 md:text-lg">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque ipsa quae.
+              You need to log in to leave feedback.
+              <a href="/login" class="text-weather-primary">Login here</a>
             </p>
           </div>
           <form @submit.prevent="submitFeedback" class="flex flex-col items-center w-full mb-4 md:flex-row md:px-16">
@@ -60,6 +61,11 @@ const authStore = useAuthStore();
 const inputData = ref('');
 
 const submitFeedback = async () => {
+  // Check if user is logged in
+  if (!authStore.isLoggedIn) {
+    alert('You need to log in to leave feedback');
+    return;
+  }
   const data = {
     feedback_message: inputData.value,
     user_id: pb.authStore.model.id,
