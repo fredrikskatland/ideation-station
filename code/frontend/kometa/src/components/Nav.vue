@@ -26,7 +26,7 @@
           </li>
           <li>
             <img :src="userAvatar" alt="User Avatar" class="w-8 h-8 rounded-full" />
-            <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-weather-primary bg-white border-2 border-white rounded-full -top-3 dark:border-gray-900">{{ 10 - authStore.user.credits }}</div>
+            <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-weather-primary bg-white border-2 border-white rounded-full -top-3 dark:border-gray-900">{{ 10 + authStore.user.credits }}</div>
           </li>
           <!-- Number of credits left. Inside a white cicle -->
           <li>
