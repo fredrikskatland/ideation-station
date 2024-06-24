@@ -25,7 +25,7 @@
             <router-link to="/workspace" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Workspace</router-link>
           </li>
           <li>
-            <img :src="authStore.user.avatar" alt="User Avatar" class="w-8 h-8 rounded-full" />
+            <img :src="userAvatar" alt="User Avatar" class="w-8 h-8 rounded-full" />
             <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-weather-primary bg-white border-2 border-white rounded-full -top-3 dark:border-gray-900">{{ 10 - authStore.user.credits }}</div>
           </li>
           <!-- Number of credits left. Inside a white cicle -->
@@ -38,7 +38,7 @@
             <router-link to="/login" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Sign in</router-link>
           </li>
           <li>
-            <router-link to="/" class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">Sign up</router-link>
+            <router-link to="/signup" class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">Sign up</router-link>
           </li>
         </template>
       </ul>
@@ -111,9 +111,13 @@
 <script setup>
 import { ref } from 'vue';
 import { useAuthStore } from '../store';  // adjust the path if needed
+import defaultAvatar from '../assets/icons8-user-default-64.png'; // Path to your default avatar image
+import { computed } from 'vue';
+
 
 const isMenuOpen = ref(false);
 const authStore = useAuthStore();
+const userAvatar = computed(() => authStore.user.avatar || defaultAvatar);
 
 </script>
 <style>

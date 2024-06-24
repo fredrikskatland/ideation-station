@@ -4,9 +4,9 @@
       <div class="mb-12 lg:max-w-lg lg:pr-5 lg:mb-0">
         <div class="max-w-xl mb-6">
           <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-            The quick, brown fox<br class="hidden md:block" />
-            jumps over
-            <span class="inline-block text-deep-purple-accent-400">a lazy dog</span>
+            Log in to start<br class="hidden md:block" />
+             exploring
+            <span class="inline-block text-deep-purple-accent-400">ideas.</span>
           </h2>
           <p class="text-base text-gray-700 md:text-lg">
             Go from interest, to idea to concept to execution in minutes with Ideation Station. Our platform is designed to take you from zero to one, faster.
@@ -25,9 +25,9 @@
           </a>
           <div class="flex flex-col">
             <div class="text-sm font-semibold">
-              Rich the kid & Famous Dex
+              Back to front page
             </div>
-            <div class="text-xs text-gray-700">Rich Forever Intro</div>
+            <div class="text-xs text-gray-700">ideationstation.ai</div>
           </div>
         </div>
       </div>
@@ -119,13 +119,6 @@ const handleGoogleLogin = async () => {
     const meta = authData.meta;
     const avatar = meta.avatarUrl; // Assuming the user data contains an avatar URL
     user.avatar = avatar; // Add avatar URL to user object
-
-    console.log("User", user);
-    const isNewUser = !user.credits;
-    if (isNewUser) {
-      user.credits = 10;
-      await pb.collection('users').update(user.id, user);
-    }
 
     authStore.login(user, router);
     alert('Logged in with Google successfully');
