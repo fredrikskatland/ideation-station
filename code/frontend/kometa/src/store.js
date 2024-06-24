@@ -71,6 +71,8 @@ export const useAuthStore = defineStore('auth', {
     },
     updateCredits(newCredits) {
       this.user.credits = newCredits;
+      // Update the users credit in database
+      pb.collection('users').update(this.user.id, { credits: newCredits });
     }
     
   },
