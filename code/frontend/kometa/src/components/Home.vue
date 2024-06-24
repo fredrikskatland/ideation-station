@@ -27,7 +27,7 @@
     <div class="mx-auto lg:max-w-2xl">
       <div class="relative w-full transition-shadow duration-300 hover:shadow-xl">
         <LiteYouTubeEmbed
-        id="ifvAqmpKU6c"
+        id="_4zGesP1oJI"
         title="Ideation Station App Demo"
       />
       </div>
