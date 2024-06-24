@@ -117,7 +117,13 @@
               </div>
             </div>
           </fwb-tab>
-          <fwb-tab name="fourth" title="Competitor analysis" disabled>
+          <fwb-tab name="fourth" title="Competitive landscape" disabled>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste dolores qui quos asperiores in officiis natus odit enim modi eius mollitia reprehenderit, repudiandae rem corrupti. Aliquid porro consequatur voluptatem qui?
+          </fwb-tab>
+          <fwb-tab name="fifth" title="SCAMPER" disabled>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste dolores qui quos asperiores in officiis natus odit enim modi eius mollitia reprehenderit, repudiandae rem corrupti. Aliquid porro consequatur voluptatem qui?
+          </fwb-tab>
+          <fwb-tab name="sixth" title="Design Thinking" disabled>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste dolores qui quos asperiores in officiis natus odit enim modi eius mollitia reprehenderit, repudiandae rem corrupti. Aliquid porro consequatur voluptatem qui?
           </fwb-tab>
         </fwb-tabs>

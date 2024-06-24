@@ -55,8 +55,9 @@ Total: 4010,24 NOK
 - [ ] Implement Stripe for payment
 - [x] Credits: show remaining credits
 - [ ] Credits: buy credits
-- [ ] Credit system: initialize credits for new users
+- [x] Credit system: initialize credits for new users
 - [x] Feedback/contact form
+- [ ] Terms of Service
 
 #### Deployment
 - [x] Dockerize backend services
@@ -77,6 +78,7 @@ Total: 4010,24 NOK
 - [x] Aquire domain for Ideation Station: ideationstation.ai on one.com
 - [x] Backdrop build signup
 - [ ] DNS setup for ideationstation.ai on one.com and cloudflare 
+- [ ] Set up Terms of Service
 
 ### Marketing
 - [ ] Create launch plan
@@ -85,7 +87,7 @@ Total: 4010,24 NOK
 - [ ] Research HackerNews
 - [ ] Research IndieHackers
 - [X] Create product demo on youtube
-- [ ] Improve product demo
+- [x] Improve product demo
 - [ ] Product hook on webpage
 - [ ] Launch with Backdrop build
 
@@ -102,3 +104,9 @@ Total: 4010,24 NOK
 - [x] Fly.io (backend, db and langserve)
 - [x] GitHub (codebase)
 - [x] Google Analytics (marketing analytics)
+
+### Ideas to explore
+- [ ] SCAMPER
+- [ ] Design Thinking
+- [ ] SWOT
+- [ ] PESTEL
