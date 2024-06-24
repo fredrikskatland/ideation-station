@@ -83,16 +83,16 @@ class BusinessPlan(BaseModel):
     raid_chart: RAIDChart = Field(description="Raid chart for the business or product")
 
 class IdeaConcept(BaseModel):
-    headline: str = Field(description="Concept headline")
-    description: str = Field(description="Brief description of the concept/product")
+    headline: str = Field(description="Concept headline. Not too tabloid.")
+    description: str = Field(description="Brief description of the concept/product. Do not be too tabloid, be concise and to the point and describe the concept/product in a clear manner.")
 
 class IdeaDetails(BaseModel):
-    target_audience: str = Field(description="Target audience for the concept")
-    pricing: str = Field(description="How to price the business or product")
-    marketing: str = Field(description="How to market the business or product")
-    stand_out: str = Field(description="How to make the business or product stand out from competitors")
-    dos: List[str] = Field(description="List of dos for the concept")
-    donts: List[str] = Field(description="List of don'ts for the concept")
+    target_audience: str = Field(description="Target audience for the concept. Take the type of product or concept into deep consideration and come up with a target audience that would be interested in the product or concept.")
+    pricing: str = Field(description="How to price the business or product. Do not be generic, think about the target audience and the product or concept and come up with a pricing strategy that would be appealing to the target audience.")
+    marketing: str = Field(description="How to market the business or product. Think about the target audience and the product or concept and come up with a marketing strategy that would be appealing to the target audience.")
+    stand_out: str = Field(description="How to make the business or product stand out from competitors. Consider the competitive landscape, and come up with a unique selling proposition that would make the product or concept stand out from competitors, if there is any.")
+    dos: List[str] = Field(description="List of dos for the concept. Do not be too generic. Consider the target audience and the product or concept and come up with a list of dos that would be appealing to the target audience.")
+    donts: List[str] = Field(description="List of don'ts for the concept. Do not be too generic. Consider the target audience and the product or concept and come up with a list of don'ts that would be appealing to the target audience.")
 
 class IdeaQuality(BaseModel):
     originality: float = Field(description="How original is the idea, totally unique or copy-cat. Give a rating from 0 to 100 where 0 is complete copy and 100 is totally unique")    
