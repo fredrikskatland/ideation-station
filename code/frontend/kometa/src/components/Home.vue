@@ -33,7 +33,13 @@
       </div>
     </div>
     <HowItWorks />
+    <div class="text-base text-gray-700 md:text-lg">
+      Listed on: 
+      <a href="https://tap4.ai/" title="Tap4 AI Tools Directory" class="text-base text-gray-700 md:text-lg">Tap4 AI Tools Diresctory</a>
+    </div>
   </div>
+  
+ 
 </template>
 <script setup>
 import LiteYouTubeEmbed from 'vue-lite-youtube-embed'
