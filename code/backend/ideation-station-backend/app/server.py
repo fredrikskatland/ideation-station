@@ -8,6 +8,7 @@ from pirate_speak.chains import (
     complete_idea_details_chain as idea_details_chain,
     complete_idea_plans_chain as idea_plans_chain,
     complete_idea_quality_chain as idea_quality_chain,
+    complete_idea_scamper_chain as idea_scamper_chain,
 )
 
 app = FastAPI()
@@ -16,6 +17,8 @@ origins = [
     "http://localhost:5173",  # Vue app
     "http://localhost:8000",  # FastAPI server (change to your FastAPI server URL)
     "https://ideation-station.vercel.app",  # Vercel deployment
+    "https://ideationstation.ai",
+    "https://www.ideationstation.ai",
 ]
 
 app.add_middleware(
@@ -37,6 +40,7 @@ add_routes(app, idea_concept_chain, path="/idea-concept-chain")
 add_routes(app, idea_details_chain, path="/idea-details-chain")
 add_routes(app, idea_plans_chain, path="/idea-plans-chain")
 add_routes(app, idea_quality_chain, path="/idea-quality-chain")
+add_routes(app, idea_scamper_chain, path="/idea-scamper-chain")
 
 if __name__ == "__main__":
     import uvicorn

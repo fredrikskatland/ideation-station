@@ -121,7 +121,24 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste dolores qui quos asperiores in officiis natus odit enim modi eius mollitia reprehenderit, repudiandae rem corrupti. Aliquid porro consequatur voluptatem qui?
           </fwb-tab>
           <fwb-tab name="fifth" title="SCAMPER">
-            <Scamper/>
+            <div v-if="idea_scamper">
+              <Scamper :idea_scamper="idea_scamper"/>
+            </div>
+            <div v-else class="sm:col-span-3 lg:col-span-2 p-2">
+              <div class="mb-3 flex">
+                <p class="text-2xl font-extrabold leading-none sm:text-2xl xl:text-2xl">Run SCAMPER method</p>
+                <button @click="generateScamper" class="bg-weather-primary hover:bg-weather-secondary text-white font-bold py-2 px-2 rounded mx-12">
+                  <span v-if="!loading_scamper">Run SCAMPER</span>
+                  <span v-else class="flex items-center">
+                    <svg class="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                    </svg>
+                    Loading...
+                  </span>
+                </button>
+              </div>
+            </div>
           </fwb-tab>
           <fwb-tab name="sixth" title="Design Thinking" disabled>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste dolores qui quos asperiores in officiis natus odit enim modi eius mollitia reprehenderit, repudiandae rem corrupti. Aliquid porro consequatur voluptatem qui?
@@ -146,6 +163,7 @@
     fetchIdeaDetails,
     fetchIdeaPlans,
     fetchIdeaQuality,
+    fetchIdeaScamper,
   } from '../services/apiService';
   import PocketBase from 'pocketbase';
 
@@ -155,17 +173,20 @@
   const loading_details = ref(false);
   const loading_plans = ref(false);
   const loading_quality = ref(false);
+  const loading_scamper = ref(false);
 
   const route = useRoute();
   const idea = ref(null);
   const idea_details = ref(null);
   const idea_plans = ref(null);
   const idea_quality = ref(null);
+  const idea_scamper = ref(null);
 
   onMounted(async () => {
     loading_details.value = true;
     loading_plans.value = true;
     loading_quality.value = true;
+    loading_scamper.value = true;
     try {
       idea.value = await fetchIdea(route.params.id);
       console.log(idea.value)
@@ -175,6 +196,8 @@
       console.log(idea_plans.value)
       idea_quality.value = await fetchIdeaQuality(route.params.id);
       console.log(idea_quality.value)
+      idea_scamper.value = await fetchIdeaScamper(route.params.id);
+      console.log(idea_scamper.value)
       // env variable
       console.log("PocketBase url", import.meta.env.VITE_POCKETBASE_URL);
     } catch (error) {
@@ -183,6 +206,7 @@
       loading_details.value = false;
       loading_plans.value = false;
       loading_quality.value = false;
+      loading_scamper.value = false;
     }
   });
  
@@ -330,6 +354,59 @@
     } finally {
       loading_plans.value = false;
       idea_plans.value = await fetchIdeaPlans(route.params.id);
+    }
+  };
+
+  const generateScamper = async () => {
+    loading_scamper.value = true;
+    let payload = idea.value.description + '\n\n' + idea_details.value.target_audience + '\n\n' + idea_details.value.pricing + '\n\n' + idea_details.value.marketing + '\n\n' + idea_details.value.stand_out + '\n\n' + idea_details.value.dos + '\n\n' + idea_details.value.donts;
+    try {
+      const res = await fetch('https://ideation-station-langserve.fly.dev/idea-scamper-chain/invoke', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ input: { concept_description: payload }, config: {} })
+      });
+
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const jsonResponse = await res.json();
+
+      idea_scamper.value = {
+        substitute: jsonResponse.output?.scamper?.substitute,
+        combine: jsonResponse.output?.scamper?.combine,
+        adapt: jsonResponse.output?.scamper?.adapt,
+        modify: jsonResponse.output?.scamper?.modify,
+        put_to_other_use: jsonResponse.output?.scamper?.put_to_other_use,
+        eliminate: jsonResponse.output?.scamper?.eliminate,
+        rearrange: jsonResponse.output?.scamper?.rearrange,
+      };
+
+      const data = {
+        idea_id: route.params.id,
+        substitute: idea_scamper.value.substitute,
+        combine: idea_scamper.value.combine,
+        adapt: idea_scamper.value.adapt,
+        modify: idea_scamper.value.modify,
+        put_to_other_use: idea_scamper.value.put_to_other_use,
+        eliminate: idea_scamper.value.eliminate,
+        rearrange: idea_scamper.value.rearrange,
+        created: new Date().toISOString(),
+        updated: new Date().toISOString(),
+      };
+
+      await pb.collection('idea_scamper').create(data);
+
+      idea.value = await fetchIdea(route.params.id);
+      idea_scamper.value = await fetchIdeaScamper(route.params.id);
+
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    } finally {
+      loading_scamper.value = false;
     }
   };
 

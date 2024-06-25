@@ -87,3 +87,26 @@ export const fetchIdeaQuality = async (ideaId) => {
     throw error;
   }
 };
+
+export const fetchIdeaScamper = async (ideaId) => {
+  try {
+    const record = await pb.collection('idea_scamper').getList(1, 1, {
+      filter: `idea_id = "${ideaId}"`,
+    });
+    if (record.items && record.items.length > 0) {
+      const item = record.items[0];
+      return {
+        substitute: item.substitute,
+        combine: item.combine,
+        adapt: item.adapt,
+        modify: item.modify,
+        put_to_other_use: item.put_to_other_use,
+        eliminate: item.eliminate,
+        rearrange: item.rearrange,
+      };
+    }
+  } catch (error) {
+    console.error('Error fetching idea scamper:', error);
+    throw error;
+  }
+}

@@ -100,3 +100,12 @@ class IdeaQuality(BaseModel):
     difficulty: float = Field(description="Technical difficulty executing the idea. Give a rating from 0 to 100 where 0 very easy and 100 very difficult")
     profitability: float = Field(description="Profitability of the idea. How easy is it to monetize this idea? Give a rating from 0 to 100 where 0 is not profitable and 100 is very profitable")
     description: str = Field(description="Brief rundown of reasons and arguments for the ratings")
+
+class Scamper(BaseModel):
+    substitute: str = Field(description="Substitute something in the idea")
+    combine: str = Field(description="Combine the idea with something else")
+    adapt: str = Field(description="Adapt something in the idea")
+    modify: str = Field(description="Modify something in the idea")
+    put_to_other_use: str = Field(description="Put the idea to other uses")
+    eliminate: str = Field(description="Eliminate something in the idea")
+    rearrange: str = Field(description="Reverse something in the idea")

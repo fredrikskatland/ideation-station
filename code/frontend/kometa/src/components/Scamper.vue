@@ -7,7 +7,7 @@
           </div>
           <h6 class="mb-2 font-semibold leading-5">Substitute</h6>
           <p class="mb-3 text-sm text-gray-900">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium rem aperiam.
+            {{ idea_scamper.substitute }}
           </p>
           
         </div>
@@ -17,7 +17,7 @@
           </div>
           <h6 class="mb-2 font-semibold leading-5">Combine</h6>
           <p class="mb-3 text-sm text-gray-900">
-            Rough pomfret lemon shark plownose chimaera southern sandfish kokanee northern sea.
+            {{ idea_scamper.combine }}
           </p>
           
         </div>
@@ -27,7 +27,7 @@
           </div>
           <h6 class="mb-2 font-semibold leading-5">Adapt</h6>
           <p class="mb-3 text-sm text-gray-900">
-            A slice of heaven. O for awesome, this chocka full cuzzie is as rip-off as a cracker.
+            {{ idea_scamper.adapt }}
           </p>
           
         </div>
@@ -37,7 +37,7 @@
           </div>
           <h6 class="mb-2 font-semibold leading-5">Modify</h6>
           <p class="mb-3 text-sm text-gray-900">
-            Disrupt inspire and think tank, social entrepreneur but preliminary thinking think tank compelling.
+            {{ idea_scamper.modify }}
           </p>
           
         </div>
@@ -45,9 +45,9 @@
           <div class="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-indigo-50">
             <font-awesome-icon :icon="['fas', 'route']" />
           </div>
-          <h6 class="mb-2 font-semibold leading-5">Put to other uses</h6>
+          <h6 class="mb-2 font-semibold leading-5">Put to another use</h6>
           <p class="mb-3 text-sm text-gray-900">
-            Rough pomfret lemon shark plownose chimaera southern sandfish kokanee northern sea.
+            {{ idea_scamper.put_to_other_use }}
           </p>
           
         </div>
@@ -57,7 +57,7 @@
           </div>
           <h6 class="mb-2 font-semibold leading-5">Eliminate</h6>
           <p class="mb-3 text-sm text-gray-900">
-            A slice of heaven. O for awesome, this chocka full cuzzie is as rip-off as a cracker.
+            {{ idea_scamper.eliminate }}
           </p>
           
         </div>
@@ -67,10 +67,18 @@
           </div>
           <h6 class="mb-2 font-semibold leading-5">Rearrange</h6>
           <p class="mb-3 text-sm text-gray-900">
-            A slice of heaven. O for awesome, this chocka full cuzzie is as rip-off as a cracker.
+            {{ idea_scamper.rearrange }}
           </p>
           
         </div>
       </div>
     </div>
   </template>
+
+  <script setup>
+
+  const props = defineProps({  
+    idea_scamper: Object,
+  });
+
+</script>
