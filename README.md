@@ -90,6 +90,7 @@ Total: 4010,24 NOK
 - [x] Improve product demo
 - [ ] Product hook on webpage
 - [ ] Launch with Backdrop build
+- [ ] Microlaunch
 
 ### Testing
 - [ ] Create test plan
@@ -110,3 +111,7 @@ Total: 4010,24 NOK
 - [ ] Design Thinking
 - [ ] SWOT
 - [ ] PESTEL
+
+### Project management templates
+- https://madewithvuejs.com/vue-ganttastic
+- 

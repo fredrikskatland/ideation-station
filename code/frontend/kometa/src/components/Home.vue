@@ -33,9 +33,10 @@
       </div>
     </div>
     <HowItWorks />
-    <div class="text-base text-gray-700 md:text-lg">
+    <HowItWorksSteps />
+    <div>
       Listed on: 
-      <a href="https://tap4.ai/" title="Tap4 AI Tools Directory" class="text-base text-gray-700 md:text-lg">Tap4 AI Tools Diresctory</a>
+      <a href="https://tap4.ai/" title="Tap4 AI Tools Directory">Tap4 AI Tools Diresctory</a>
     </div>
   </div>
   
@@ -45,4 +46,5 @@
 import LiteYouTubeEmbed from 'vue-lite-youtube-embed'
 import 'vue-lite-youtube-embed/style.css'
 import HowItWorks from './HowItWorks.vue';
+import HowItWorksSteps from './HowItWorksSteps.vue';
 </script>
