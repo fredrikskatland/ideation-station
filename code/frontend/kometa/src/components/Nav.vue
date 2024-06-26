@@ -25,8 +25,10 @@
             <router-link to="/workspace" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Workspace</router-link>
           </li>
           <li>
-            <img :src="userAvatar" alt="User Avatar" class="w-8 h-8 rounded-full" />
-            <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-weather-primary bg-white border-2 border-white rounded-full -top-3 dark:border-gray-900">{{ 10 + authStore.user.credits }}</div>
+            <router-link to="/myuserprofile" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">
+              <img :src="userAvatar" alt="User Avatar" class="w-8 h-8 rounded-full" />
+              <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-weather-primary bg-white border-2 border-white rounded-full -top-3 dark:border-gray-900">{{ 10 + authStore.user.credits }}</div>
+            </router-link>
           </li>
           <!-- Number of credits left. Inside a white cicle -->
           <li>
@@ -120,25 +122,3 @@ const authStore = useAuthStore();
 const userAvatar = computed(() => authStore.user.avatar || defaultAvatar);
 
 </script>
-<style>
-@keyframes flame {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.flame {
-  position: absolute;
-  width: 10px;
-  height: 20px;
-  background: radial-gradient(circle, rgba(255,69,0,1) 0%, rgba(255,140,0,1) 70%, rgba(255,215,0,1) 100%);
-  border-radius: 50% 50% 0 0;
-  top: -25px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: flame 0.5s infinite ease-in-out;
-}
-</style>

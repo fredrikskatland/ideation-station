@@ -8,6 +8,7 @@ import About from '../components/About.vue'
 import Pricing from '../components/Pricing.vue'
 import Product from '../components/Product.vue'
 import Feedback from '../components/Feedback.vue'
+import MyUserProfile from '../components/MyUserProfile.vue'
 
 const routes = [
   { path: '/', component: Home },
@@ -18,6 +19,7 @@ const routes = [
   { path: '/pricing', component: Pricing },
   { path: '/product', component: Product },
   { path: '/feedback', component: Feedback },
+  { path: '/myuserprofile', component: MyUserProfile },
   { path: '/idea/:id', component: IdeaDetail, props: true },
 ]
 
