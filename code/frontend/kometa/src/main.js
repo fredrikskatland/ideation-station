@@ -24,6 +24,9 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 // import primevue
 import PrimeVue from 'primevue/config';
 
+// ganttastic
+import ganttastic from '@infectoone/vue-ganttastic'
+
 // Add icons to the library
 library.add(fas, far, fab)
 
@@ -41,6 +44,9 @@ app.use(pinia)
 app.use(PrimeVue, {
     unstyled: true
 });
+
+// Use the ganttastic plugin
+app.use(ganttastic)
 
 // Register the Font Awesome component globally
 app.component('font-awesome-icon', FontAwesomeIcon)

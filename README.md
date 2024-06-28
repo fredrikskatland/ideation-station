@@ -58,6 +58,7 @@ Total: 4010,24 NOK
 - [x] Credit system: initialize credits for new users
 - [x] Feedback/contact form
 - [ ] Terms of Service
+- [x] Manage User Profile
 
 #### Deployment
 - [x] Dockerize backend services
@@ -77,7 +78,7 @@ Total: 4010,24 NOK
 - [ ] Setup fredrikskatland.com for ENK
 - [x] Aquire domain for Ideation Station: ideationstation.ai on one.com
 - [x] Backdrop build signup
-- [ ] DNS setup for ideationstation.ai on one.com and cloudflare 
+- [x] DNS setup for ideationstation.ai on one.com (nameserver fixed)
 - [ ] Set up Terms of Service
 
 ### Marketing
@@ -107,7 +108,7 @@ Total: 4010,24 NOK
 - [x] Google Analytics (marketing analytics)
 
 ### Ideas to explore
-- [ ] SCAMPER
+- [X] SCAMPER
 - [ ] Design Thinking
 - [ ] SWOT
 - [ ] PESTEL

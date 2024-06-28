@@ -23,10 +23,11 @@ class MilestonePlan(BaseModel):
 
 class Task(BaseModel):
     id: int
-    name: str
-    start_date: date
-    end_date: date
-    status: str
+    name: str = Field(description="Short descriptive name of the task")
+    start_date: date = Field(description="Start date of the task")
+    end_date: date = Field(description="End date of the task")
+    status: str = Field(description="Status of the task")
+    label: str = Field(description="Label of the task, for example marketing, UX, development, administration, etc.")
 
 class GanttChart(BaseModel):
     project_name: str

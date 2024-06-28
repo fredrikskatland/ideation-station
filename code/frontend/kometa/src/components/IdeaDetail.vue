@@ -143,6 +143,26 @@
           <fwb-tab name="sixth" title="Design Thinking" disabled>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste dolores qui quos asperiores in officiis natus odit enim modi eius mollitia reprehenderit, repudiandae rem corrupti. Aliquid porro consequatur voluptatem qui?
           </fwb-tab>
+          <fwb-tab name="Seventh" title="Gantt Chart">
+            <div v-if="idea_gantt_chart">
+              <GanttChart :ganttChart="idea_gantt_chart"/>
+            </div>
+            <div v-else class="sm:col-span-3 lg:col-span-2 p-2">
+              <div class="mb-3 flex">
+                <p class="text-2xl font-extrabold leading-none sm:text-2xl xl:text-2xl">Generate Gantt Chart</p>
+                <button @click="generateGanttChart" class="bg-weather-primary hover:bg-weather-secondary text-white font-bold py-2 px-2 rounded mx-12">
+                  <span v-if="!loading_gantt_chart">Generate Gantt Chart</span>
+                  <span v-else class="flex items-center">
+                    <svg class="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                    </svg>
+                    Loading...
+                  </span>
+                </button>
+              </div>
+            </div>
+          </fwb-tab>
         </fwb-tabs>
       </flowbite-themable>
     </div>
@@ -164,6 +184,7 @@
     fetchIdeaPlans,
     fetchIdeaQuality,
     fetchIdeaScamper,
+    fetchIdeaGanttChart,
   } from '../services/apiService';
   import PocketBase from 'pocketbase';
 
@@ -174,6 +195,7 @@
   const loading_plans = ref(false);
   const loading_quality = ref(false);
   const loading_scamper = ref(false);
+  const loading_gantt_chart = ref(false);
 
   const route = useRoute();
   const idea = ref(null);
@@ -181,12 +203,14 @@
   const idea_plans = ref(null);
   const idea_quality = ref(null);
   const idea_scamper = ref(null);
+  const idea_gantt_chart = ref(null);
 
   onMounted(async () => {
     loading_details.value = true;
     loading_plans.value = true;
     loading_quality.value = true;
     loading_scamper.value = true;
+    loading_gantt_chart.value = true;
     try {
       idea.value = await fetchIdea(route.params.id);
       console.log(idea.value)
@@ -198,6 +222,8 @@
       console.log(idea_quality.value)
       idea_scamper.value = await fetchIdeaScamper(route.params.id);
       console.log(idea_scamper.value)
+      idea_gantt_chart.value = await fetchIdeaGanttChart(route.params.id);
+      console.log(idea_gantt_chart.value)
       // env variable
       console.log("PocketBase url", import.meta.env.VITE_POCKETBASE_URL);
     } catch (error) {
@@ -207,6 +233,7 @@
       loading_plans.value = false;
       loading_quality.value = false;
       loading_scamper.value = false;
+      loading_gantt_chart.value = false;
     }
   });
  
@@ -407,6 +434,47 @@
       console.error('There was a problem with the fetch operation:', error);
     } finally {
       loading_scamper.value = false;
+    }
+  };
+
+  const generateGanttChart = async () => {
+    loading_gantt_chart.value = true;
+    let payload = idea.value.description + '\n\n' + idea_details.value.target_audience + '\n\n' + idea_details.value.pricing + '\n\n' + idea_details.value.marketing + '\n\n' + idea_details.value.stand_out + '\n\n' + idea_details.value.dos + '\n\n' + idea_details.value.donts;
+    try {
+      const res = await fetch('https://ideation-station-langserve.fly.dev/idea-gantt-chart-chain/invoke', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ input: { concept_details: payload }, config: {} })
+      });
+
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const jsonResponse = await res.json();
+
+      idea_gantt_chart.value = {
+        gantt_chart: jsonResponse.output?.gantt_chart,
+      };
+
+      const data = {
+        idea_id: route.params.id,
+        gantt_chart: idea_gantt_chart.value.gantt_chart,
+        created: new Date().toISOString(),
+        updated: new Date().toISOString(),
+      };
+
+      await pb.collection('idea_gantt_chart').create(data);
+
+      idea.value = await fetchIdea(route.params.id);
+      idea_gantt_chart.value = await fetchIdeaGanttChart(route.params.id);
+
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    } finally {
+      loading_gantt_chart.value = false;
     }
   };
 

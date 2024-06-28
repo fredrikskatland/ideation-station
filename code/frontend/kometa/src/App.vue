@@ -22,7 +22,7 @@
   }
 
   onMounted(async () => {
-    pb = new PocketBase('http://127.0.0.1:8090');
+    pb = new PocketBase(import.meta.env.VITE_POCKETBASE_URL);
     pb.authStore.onChange(() => {
       currentUser.value = pb.authStore.model;
       if (currentUser.value) {

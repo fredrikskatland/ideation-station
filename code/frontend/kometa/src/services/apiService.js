@@ -110,3 +110,19 @@ export const fetchIdeaScamper = async (ideaId) => {
     throw error;
   }
 }
+
+export const fetchIdeaGanttChart = async (ideaId) => {
+  try {
+    const record = await pb.collection('idea_gantt_chart').getList(1, 1, {
+      filter: `idea_id = "${ideaId}"`,
+    });
+    if (record.items && record.items.length > 0) {
+      const item = record.items[0];
+      console.log(item.gantt_chart)
+      return item.gantt_chart;
+    }
+  } catch (error) {
+    console.error('Error fetching gantt chart:', error);
+    throw error;
+  }
+}
