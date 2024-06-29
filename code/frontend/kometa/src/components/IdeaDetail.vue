@@ -96,7 +96,47 @@
               </div>
             </div>
           </fwb-tab>
-          <fwb-tab name="third" title="Planning">
+          <fwb-tab name="third" title="Gantt Chart">
+            <div v-if="idea_gantt_chart">
+              <GanttChart :ganttChart="idea_gantt_chart"/>
+            </div>
+            <div v-else class="sm:col-span-3 lg:col-span-2 p-2">
+              <div class="mb-3 flex">
+                <p class="text-2xl font-extrabold leading-none sm:text-2xl xl:text-2xl">Generate Gantt Chart</p>
+                <button @click="generateGanttChart" class="bg-weather-primary hover:bg-weather-secondary text-white font-bold py-2 px-2 rounded mx-12">
+                  <span v-if="!loading_gantt_chart">Generate Gantt Chart</span>
+                  <span v-else class="flex items-center">
+                    <svg class="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                    </svg>
+                    Loading...
+                  </span>
+                </button>
+              </div>
+            </div>
+          </fwb-tab>
+          <fwb-tab name="fourth" title="SCAMPER">
+            <div v-if="idea_scamper">
+              <Scamper :idea_scamper="idea_scamper"/>
+            </div>
+            <div v-else class="sm:col-span-3 lg:col-span-2 p-2">
+              <div class="mb-3 flex">
+                <p class="text-2xl font-extrabold leading-none sm:text-2xl xl:text-2xl">Run SCAMPER method</p>
+                <button @click="generateScamper" class="bg-weather-primary hover:bg-weather-secondary text-white font-bold py-2 px-2 rounded mx-12">
+                  <span v-if="!loading_scamper">Run SCAMPER</span>
+                  <span v-else class="flex items-center">
+                    <svg class="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                    </svg>
+                    Loading...
+                  </span>
+                </button>
+              </div>
+            </div>
+          </fwb-tab>
+          <fwb-tab name="fifth" title="Planning" disabled>
             <div v-if="idea_plans">
               <Plans :idea_plans="idea_plans"/>
             </div>
@@ -117,52 +157,13 @@
               </div>
             </div>
           </fwb-tab>
-          <fwb-tab name="fourth" title="Competitive landscape" disabled>
+          <fwb-tab name="sixth" title="Competitive landscape" disabled>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste dolores qui quos asperiores in officiis natus odit enim modi eius mollitia reprehenderit, repudiandae rem corrupti. Aliquid porro consequatur voluptatem qui?
           </fwb-tab>
-          <fwb-tab name="fifth" title="SCAMPER">
-            <div v-if="idea_scamper">
-              <Scamper :idea_scamper="idea_scamper"/>
-            </div>
-            <div v-else class="sm:col-span-3 lg:col-span-2 p-2">
-              <div class="mb-3 flex">
-                <p class="text-2xl font-extrabold leading-none sm:text-2xl xl:text-2xl">Run SCAMPER method</p>
-                <button @click="generateScamper" class="bg-weather-primary hover:bg-weather-secondary text-white font-bold py-2 px-2 rounded mx-12">
-                  <span v-if="!loading_scamper">Run SCAMPER</span>
-                  <span v-else class="flex items-center">
-                    <svg class="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-                    </svg>
-                    Loading...
-                  </span>
-                </button>
-              </div>
-            </div>
-          </fwb-tab>
-          <fwb-tab name="sixth" title="Design Thinking" disabled>
+          <fwb-tab name="seventh" title="Design Thinking" disabled>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste dolores qui quos asperiores in officiis natus odit enim modi eius mollitia reprehenderit, repudiandae rem corrupti. Aliquid porro consequatur voluptatem qui?
           </fwb-tab>
-          <fwb-tab name="Seventh" title="Gantt Chart">
-            <div v-if="idea_gantt_chart">
-              <GanttChart :ganttChart="idea_gantt_chart"/>
-            </div>
-            <div v-else class="sm:col-span-3 lg:col-span-2 p-2">
-              <div class="mb-3 flex">
-                <p class="text-2xl font-extrabold leading-none sm:text-2xl xl:text-2xl">Generate Gantt Chart</p>
-                <button @click="generateGanttChart" class="bg-weather-primary hover:bg-weather-secondary text-white font-bold py-2 px-2 rounded mx-12">
-                  <span v-if="!loading_gantt_chart">Generate Gantt Chart</span>
-                  <span v-else class="flex items-center">
-                    <svg class="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-                    </svg>
-                    Loading...
-                  </span>
-                </button>
-              </div>
-            </div>
-          </fwb-tab>
+
         </fwb-tabs>
       </flowbite-themable>
     </div>
