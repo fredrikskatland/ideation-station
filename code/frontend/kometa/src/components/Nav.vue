@@ -63,7 +63,7 @@
                     <rect x="14" y="1" width="7" height="6"></rect>
                     <rect x="14" y="11" width="7" height="12"></rect>
                   </svg>
-                  <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">Company</span>
+                  <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">Ideation Station</span>
                 </router-link>
               </div>
               <div>
@@ -77,28 +77,28 @@
             <nav>
               <ul class="space-y-4">
                 <li>
-                  <router-link to="/" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Product</router-link>
+                  <router-link to="/product" @click="isMenuOpen = false" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Product</router-link>
                 </li>
                 <li>
-                  <router-link to="/" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Features</router-link>
+                  <router-link to="/about" @click="isMenuOpen = false" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">About</router-link>
                 </li>
                 <li>
-                  <router-link to="/" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Pricing</router-link>
+                  <router-link to="/pricing" @click="isMenuOpen = false" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Pricing</router-link>
                 </li>
                 <template v-if="authStore.isLoggedIn">
                   <li>
-                    <router-link to="/workspace" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Workspace</router-link>
+                    <router-link to="/workspace" @click="isMenuOpen = false" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Workspace</router-link>
                   </li>
                   <li>
-                    <button @click="authStore.logout" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Logout</button>
+                    <router-link to="/" @click="logoutAndCloseMenu" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Logout</router-link>
                   </li>
                 </template>
                 <template v-else>
                   <li>
-                    <router-link to="/login" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Sign in</router-link>
+                    <router-link to="/login" @click="isMenuOpen = false" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Log in</router-link>
                   </li>
                   <li>
-                    <router-link to="/" class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">Sign up</router-link>
+                    <router-link to="/signup" @click="isMenuOpen = false" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Sign up</router-link>
                   </li>
                 </template>
               </ul>
@@ -120,5 +120,10 @@ import { computed } from 'vue';
 const isMenuOpen = ref(false);
 const authStore = useAuthStore();
 const userAvatar = computed(() => authStore.user.avatar || defaultAvatar);
+
+const logoutAndCloseMenu = () => {
+  authStore.logout();  // Perform logout action
+  isMenuOpen.value = false;  // Close the menu
+};
 
 </script>

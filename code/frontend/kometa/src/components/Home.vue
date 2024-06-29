@@ -16,9 +16,8 @@
             </defs>
             <rect fill="url(#679d5905-e08c-4b91-a66c-84aefbb9d2f5)" width="52" height="24"></rect>
           </svg>
-          <span class="relative">Develop</span>
         </span>
-        your interest or ideas into product and business concepts in seconds.
+        Develop your interest or ideas into product and business concepts in seconds.
       </h2>
       <p class="text-base text-gray-700 md:text-lg">
         Generate product or business concept, with plans, marketing, pricing, and dos and donts to help you succeed in creating it.
