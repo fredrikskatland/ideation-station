@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "generate-sitemap": "node generate-sitemap.js",
+    "build": "npm run generate-sitemap && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -23,6 +24,7 @@
     "pinia": "^2.1.7",
     "pocketbase": "^0.21.3",
     "primevue": "^3.52.0",
+    "sitemap": "^8.0.0",
     "vue": "^3.4.21",
     "vue-lite-youtube-embed": "^1.2.4",
     "vue-router": "^4.0.13"

@@ -115,4 +115,12 @@ Total: 4010,24 NOK
 
 ### Project management templates
 - https://madewithvuejs.com/vue-ganttastic
-- 
+
+### SEO
+- [x] Setup Google Analytics
+- [ ] Setup Google Search Console
+- [ ] Keyword analysis
+- [ ] Content-Types
+- [ ] Meta tags
+- [ ] Sitemap
+- [ ] Robots.txt
