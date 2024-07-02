@@ -4,9 +4,11 @@
 </template>
 
 <script setup>
-  import { ref, onMounted } from 'vue';
+  import { ref, onMounted, reactive, computed } from 'vue';
   import Nav from './components/Nav.vue'
   import PocketBase from 'pocketbase';
+  import { useHead } from '@vueuse/head';
+  
 
   let pb = null;
   const currentUser = ref();
@@ -75,9 +77,20 @@
     selectedIdea.value = idea;
   };
 
+  // Use the `useHead` composable to set the page title
+  const siteData = reactive({
+    title: 'Ideation Station',
+    description: 'Develop your interest or ideas into product and business concepts in seconds.',
+  })
+
+  useHead({
+    title: computed(() => siteData.title),
+    meta: [
+     {
+        name: 'description',
+        content: computed(() => siteData.description),
+     }
+    ],
+  })
+
 </script>
-
-
-<style scoped>
-
-</style>

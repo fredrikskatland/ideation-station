@@ -27,6 +27,9 @@ import PrimeVue from 'primevue/config';
 // ganttastic
 import ganttastic from '@infectoone/vue-ganttastic'
 
+// head
+import { createHead } from '@vueuse/head'
+
 // Add icons to the library
 library.add(fas, far, fab)
 
@@ -47,6 +50,10 @@ app.use(PrimeVue, {
 
 // Use the ganttastic plugin
 app.use(ganttastic)
+
+// Use the head plugin
+const head = createHead()
+app.use(head)
 
 // Register the Font Awesome component globally
 app.component('font-awesome-icon', FontAwesomeIcon)

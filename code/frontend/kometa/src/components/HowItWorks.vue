@@ -21,3 +21,26 @@
       </div>
     </div>
   </template>
+
+  <script setup>
+
+    import { reactive, computed } from 'vue';
+    import { useHead } from '@vueuse/head';
+
+
+    const siteData = reactive({
+      title: 'Ideation Station - How does it work?',
+      description: 'Ideation takes your interests or idea keywords as prompts and creates a business concept or product around it.',
+    });
+
+    useHead({
+      title: computed(() => siteData.title),
+      meta: [
+        {
+          name: 'description',
+          content: computed(() => siteData.description),
+        },
+      ],
+    });
+
+  </script>

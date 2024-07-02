@@ -15,3 +15,24 @@
       </div>
     </div>
   </template>
+  <script setup>
+    import { reactive, computed } from 'vue';
+    import { useHead } from '@vueuse/head';
+
+
+    const siteData = reactive({
+      title: 'Ideation Station - About the creator',
+      description: 'About the creator of Ideation Station. First project for AI enthusiast. Building this project as a learning experience.',
+    });
+
+    useHead({
+      title: computed(() => siteData.title),
+      meta: [
+        {
+          name: 'description',
+          content: computed(() => siteData.description),
+        },
+      ],
+    });
+
+  </script>

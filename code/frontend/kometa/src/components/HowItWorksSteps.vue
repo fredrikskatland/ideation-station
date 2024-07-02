@@ -100,3 +100,26 @@
       </div>
     </div>
   </template>
+
+<script setup>
+
+import { reactive, computed } from 'vue';
+import { useHead } from '@vueuse/head';
+
+
+const siteData = reactive({
+  title: 'Ideation Station - How does it work - Steps',
+  description: 'Create a user and log in, input your interests or ideas, explore the generated concept, and evaluate the concept with built in AI functionality.',
+});
+
+useHead({
+  title: computed(() => siteData.title),
+  meta: [
+    {
+      name: 'description',
+      content: computed(() => siteData.description),
+    },
+  ],
+});
+
+</script>

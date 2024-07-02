@@ -42,8 +42,29 @@
  
 </template>
 <script setup>
-import LiteYouTubeEmbed from 'vue-lite-youtube-embed'
-import 'vue-lite-youtube-embed/style.css'
-import HowItWorks from './HowItWorks.vue';
-import HowItWorksSteps from './HowItWorksSteps.vue';
+  import LiteYouTubeEmbed from 'vue-lite-youtube-embed'
+  import 'vue-lite-youtube-embed/style.css'
+  import HowItWorks from './HowItWorks.vue';
+  import HowItWorksSteps from './HowItWorksSteps.vue';
+
+
+  import { reactive, computed } from 'vue';
+  import { useHead } from '@vueuse/head';
+
+
+  const siteData = reactive({
+    title: 'Ideation Station - Home',
+    description: 'Watch the demo, login in and start turning your interests or ideas into product and business concepts in seconds.',
+  });
+
+  useHead({
+    title: computed(() => siteData.title),
+    meta: [
+      {
+        name: 'description',
+        content: computed(() => siteData.description),
+      },
+    ],
+  });
+
 </script>

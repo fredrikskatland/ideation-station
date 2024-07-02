@@ -157,3 +157,26 @@
       </div>
     </div>
   </template>
+
+<script setup>
+
+  import { reactive, computed } from 'vue';
+  import { useHead } from '@vueuse/head';
+
+
+  const siteData = reactive({
+    title: 'Ideation Station - Pricing and plans',
+    description: 'Transparent pricing. Try for Free, buy more credits if it adds value. One time purchase, no subscription.',
+  });
+
+  useHead({
+    title: computed(() => siteData.title),
+    meta: [
+      {
+        name: 'description',
+        content: computed(() => siteData.description),
+      },
+    ],
+  });
+
+</script>
