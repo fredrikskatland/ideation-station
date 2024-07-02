@@ -136,6 +136,9 @@ const handleSubmit = async () => {
 
     authStore.fetchIdeas();
 
+    // Call the Google Ads conversion tracking function
+    gtag_report_conversion();
+
   } catch (error) {
     console.error('There was a problem with the fetch operation:', error);
     headline.value = marked(`**Error:** ${error.message}`);
@@ -143,4 +146,21 @@ const handleSubmit = async () => {
     loading.value = false;
   }
 };
+</script>
+
+
+
+<script>
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+        'send_to': 'AW-11381796637/vXCtCM2ou-4YEJ3eobMq',
+        'event_callback': callback
+    });
+    return false;
+  }
 </script>
