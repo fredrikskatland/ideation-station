@@ -39,7 +39,7 @@
           <div class="flex justify-center w-full mb-3">
             <div class="flex items-center">
             <button 
-            class="mr-3 font-semibold text-gray-700 text-center"
+            class="mr-3 font-semibold text-gray-700 text-center shadow-md p-3 bg-white border border-gray-300 rounded"
             @click="handleGoogleLogin"
             role="button"
             tabindex="0"
@@ -100,7 +100,7 @@
                 <div class="mt-4 mb-2 sm:mb-4">
                   <button 
                     type="submit"
-                    class="mr-3 font-semibold text-gray-700 text-center"
+                    class="mr-3 font-semibold text-gray-700 text-center shadow-md p-3 bg-white border border-gray-300 rounded"
                     role="button"
                     tabindex="0"
                     @keypress.enter="createUser"

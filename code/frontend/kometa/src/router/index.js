@@ -9,9 +9,10 @@ import Pricing from '../components/Pricing.vue'
 import Product from '../components/Product.vue'
 import Feedback from '../components/Feedback.vue'
 import MyUserProfile from '../components/MyUserProfile.vue'
+import Hero from '../components/Hero.vue'
 
 const routes = [
-  { path: '/', component: Home },
+  { path: '/', component: Hero },
   { path: '/login', component: Login },
   { path: '/signup', component: Signup},
   { path: '/workspace', component: Workspace },

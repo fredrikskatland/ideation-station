@@ -47,7 +47,6 @@
   import HowItWorks from './HowItWorks.vue';
   import HowItWorksSteps from './HowItWorksSteps.vue';
 
-
   import { reactive, computed } from 'vue';
   import { useHead } from '@vueuse/head';
 
