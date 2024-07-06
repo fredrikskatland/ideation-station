@@ -54,11 +54,17 @@
         </div>
         <div class="sm:col-span-3 lg:col-span-2">
           <div class="mb-3">
-            <router-link :to="`/idea/${idea.id}`" aria-label="Article" class="inline-block text-black transition-colors duration-200 hover:text-deep-purple-accent-700">
-              <p class="text-3xl font-extrabold leading-none sm:text-4xl xl:text-4xl">
-                {{ idea.headline }}
-              </p>
-            </router-link>
+            <button 
+              class="bg-weather-primary text-white"
+              >
+              <router-link :to="`/idea/${idea.id}`" aria-label="Article" 
+              class="inline-flex items-center justify-center w-full h-8 px-12 py-16 font-medium tracking-wide  transition duration-200 rounded shadow-md md:w-auto bg-weather-primary hover:bg-weather-secondary focus:shadow-outline focus:outline-none text-white rounded"
+              >
+                <p class="text-3xl font-extrabold leading-none sm:text-4xl xl:text-4xl">
+                  {{ idea.headline }}
+                </p>
+              </router-link>
+            </button>
           </div>
           <p class="text-gray-700">
             {{ idea.description }}
@@ -132,12 +138,16 @@ const handleSubmit = async () => {
       updated: new Date().toISOString(),
     };
 
-    await pb.collection('ideas').create(data);
+    const newIdea = await pb.collection('ideas').create(data);
+
 
     authStore.fetchIdeas();
 
     // Call the Google Ads conversion tracking function
     gtag_report_conversion();
+
+    // Navigate to the new idea
+    router.push(`/idea/${newIdea.id}`);
 
   } catch (error) {
     console.error('There was a problem with the fetch operation:', error);
