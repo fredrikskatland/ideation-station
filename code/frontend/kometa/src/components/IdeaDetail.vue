@@ -210,13 +210,12 @@ onMounted(async () => {
     idea.value = await fetchIdea(route.params.id);
     console.log(idea.value);
     // Check if idea_details.value is null run the  generate details function, otherwise run the fetchIdeaDetails function
+    idea_details.value = await fetchIdeaDetails(route.params.id);
     if (!idea_details.value) {
       await generateDetails();
     } else {
       idea_details.value = await fetchIdeaDetails(route.params.id);
     }
-
-    idea_details.value = await fetchIdeaDetails(route.params.id);
     console.log(idea_details.value);
     idea_plans.value = await fetchIdeaPlans(route.params.id);
     console.log(idea_plans.value);

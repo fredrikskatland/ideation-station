@@ -42,45 +42,34 @@
     </div>
   </div>
   <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-    <div class="mb-10 border-t border-b divide-y">
-      <div class="grid py-8 sm:grid-cols-4" v-for="idea in authStore.ideas" :key="idea.id">
-        <div class="mb-4 sm:mb-0">
-          <div class="space-y-1 text-xs font-semibold tracking-wide uppercase">
-            <router-link :to="`/idea/${idea.id}`" aria-label="Article" class="inline-block text-black transition-colors duration-200 hover:text-deep-purple-accent-700">
-              {{ idea.topic }}
-            </router-link>
-            <p class="text-gray-600">{{ new Date(idea.created).toLocaleDateString() }}</p>
-          </div>
-        </div>
-        <div class="sm:col-span-3 lg:col-span-2">
-          <div class="mb-3">
-            <button 
-              class="bg-weather-primary text-white"
-              >
-              <router-link :to="`/idea/${idea.id}`" aria-label="Article" 
-              class="inline-flex items-center justify-center w-full h-8 px-12 py-16 font-medium tracking-wide  transition duration-200 rounded shadow-md md:w-auto bg-weather-primary hover:bg-weather-secondary focus:shadow-outline focus:outline-none text-white rounded"
-              >
-                <p class="text-3xl font-extrabold leading-none sm:text-4xl xl:text-4xl">
-                  {{ idea.headline }}
-                </p>
-              </router-link>
-            </button>
-          </div>
-          <p class="text-gray-700">
-            {{ idea.description }}
-          </p>
+  <div class="mb-10 border-t border-b divide-y">
+    <div class="grid py-8 sm:grid-cols-4" v-for="idea in authStore.ideas" :key="idea.id">
+      <div class="mb-4 sm:mb-0">
+        <div class="space-y-1 text-xs font-semibold tracking-wide uppercase">
+          <router-link :to="`/idea/${idea.id}`" aria-label="Article" class="inline-block text-black transition-colors duration-200 hover:text-deep-purple-accent-700">
+            {{ idea.topic }}
+          </router-link>
+          <p class="text-gray-600">{{ new Date(idea.created).toLocaleDateString() }}</p>
         </div>
       </div>
-    </div>
-    <div class="text-center">
-      <a href="/" aria-label="" class="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800">
-        See all articles
-        <svg class="inline-block w-3 ml-2" fill="currentColor" viewBox="0 0 12 12">
-          <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z"></path>
-        </svg>
-      </a>
+      <div class="sm:col-span-3 lg:col-span-2">
+        <div class="mb-3">
+          <button class="bg-weather-primary text-white w-full">
+            <router-link :to="`/idea/${idea.id}`" aria-label="Article" class="inline-flex items-center justify-center w-full h-auto px-4 py-2 font-medium tracking-wide transition duration-200 rounded shadow-md hover:bg-weather-secondary focus:shadow-outline focus:outline-none text-white">
+              <p class="text-xl font-extrabold leading-none sm:text-2xl xl:text-3xl break-words text-left">
+                {{ idea.headline }}
+              </p>
+            </router-link>
+          </button>
+        </div>
+        <p class="text-gray-700">
+          {{ idea.description }}
+        </p>
+      </div>
     </div>
   </div>
+</div>
+
 </template>
 
 <script setup>

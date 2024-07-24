@@ -19,9 +19,9 @@
           </div>
           <div class="flex items-center md:flex-row justify-center">
             <div 
-              class="inline-flex items-center justify-center w-full font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none  bg-weather-primary"
+              class="inline-flex items-center justify-center w-full font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none  bg-weather-primary border border-gray-300 rounded"
             >
-            <router-link to="/signup" class="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400 shadow-md p-3 border border-gray-300 rounded">Sign up and test for free!</router-link>
+            <router-link to="/signup" class="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400 p-3">Sign up and test for free!</router-link>
             </div>
           </div>
         </div>
