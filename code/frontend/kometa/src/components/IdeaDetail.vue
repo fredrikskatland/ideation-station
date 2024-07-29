@@ -132,6 +132,7 @@
             </div>
           </div>
         </fwb-tab>
+        <!--
         <fwb-tab name="fifth" title="Planning" disabled>
           <div v-if="idea_plans">
             <Plans :idea_plans="idea_plans" />
@@ -158,6 +159,7 @@
         <fwb-tab name="seventh" title="Design Thinking" disabled>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste dolores qui quos asperiores in officiis natus odit enim modi eius mollitia reprehenderit, repudiandae rem corrupti. Aliquid porro consequatur voluptatem qui?
         </fwb-tab>
+      -->
       </fwb-tabs>
     </flowbite-themable>
   </div>

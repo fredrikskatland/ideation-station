@@ -13,13 +13,13 @@
         </div>
         <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12 p-4">
           <p class="text-base text-gray-700 md:text-lg">
-            What is your interest, idea or concept? Develop it here.
+            What is your interest, idea or concept? Develop it here. Give just a few keywords to generate a new concept, or describe your existing idea/concept.
           </p>
         </div>
-        <form @submit.prevent="handleSubmit" class="flex flex-col items-center w-full mb-4 md:flex-row md:px-16">
+        <form @submit.prevent="handleSubmitIdea" class="flex flex-col items-center w-full mb-4 md:flex-row md:px-16">
           <input
             v-model="inputData"
-            placeholder="Idea or concept"
+            placeholder="Examples: 'Sustainable nitting', 'Something around biking and wealth management'"
             required
             type="text"
             class="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
@@ -78,88 +78,21 @@ import { useAuthStore } from '../store';  // adjust the path if needed
 import PocketBase from 'pocketbase';
 import { marked } from 'marked';  // Use named import for 'marked'
 import { useRouter } from 'vue-router';
-
+import { SubmitIdea } from '../services/apiService';
 
 const pb = new PocketBase(import.meta.env.VITE_POCKETBASE_URL || 'http://127.0.0.1:8090');  // Initialize PocketBase client
 const authStore = useAuthStore();
+const router = useRouter();
+
 
 // Reactive state
 const loading = ref(false);
 const inputData = ref('');
 
-const router = useRouter();
-
-
-const handleSubmit = async () => {
+const handleSubmitIdea = async () => {
   loading.value = true;
-  const currentCredits = pb.authStore.model.credits;
-  // Throw Error if user has no credits. Give altert and set loading to false and redirect to /pricing
-  if (currentCredits < -10) {
-    loading.value = false;
-    alert('You have no credits left. Please buy more credits.');
-    router.push('/pricing');
-    return;
-  }
-  const updatedCredits = currentCredits - 1;
-  //const updatedUser = await pb.collection('users').update(pb.authStore.model.id, { credits: updatedCredits });
-  //pb.authStore.model.credits = updatedCredits;
-
-  try {
-    authStore.updateCredits(updatedCredits);
-    const res = await fetch('https://ideation-station-langserve.fly.dev/idea-concept-chain/invoke', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ input: { topic: inputData.value }, config: {} })
-    });
-
-    if (!res.ok) {
-      throw new Error('Network response was not ok');
-    }
-
-    const jsonResponse = await res.json();
-
-    const data = {
-      idea_output: jsonResponse.output,
-      user_id: pb.authStore.model.id,
-      created: new Date().toISOString(),
-      updated: new Date().toISOString(),
-    };
-
-    const newIdea = await pb.collection('ideas').create(data);
-
-
-    authStore.fetchIdeas();
-
-    // Call the Google Ads conversion tracking function
-    gtag_report_conversion();
-
-    // Navigate to the new idea
-    router.push(`/idea/${newIdea.id}`);
-
-  } catch (error) {
-    console.error('There was a problem with the fetch operation:', error);
-    headline.value = marked(`**Error:** ${error.message}`);
-  } finally {
-    loading.value = false;
-  }
+  await SubmitIdea(inputData.value, authStore, router);
+  loading.value = false;
 };
-</script>
 
-
-
-<script>
-  function gtag_report_conversion(url) {
-    var callback = function () {
-      if (typeof(url) != 'undefined') {
-        window.location = url;
-      }
-    };
-    gtag('event', 'conversion', {
-        'send_to': 'AW-11381796637/vXCtCM2ou-4YEJ3eobMq',
-        'event_callback': callback
-    });
-    return false;
-  }
 </script>
