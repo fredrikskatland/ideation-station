@@ -8,167 +8,127 @@
     </div>
   </div>
   <div class="px-4 sm:px-6 lg:px-8">
-    <flowbite-themable :theme="theme">
-      <fwb-tabs v-model="activeTab" class="p-2 sm:p-5">
-        <fwb-tab name="first" title="Details" class="text-2xl sm:text-4xl hover:bg-weather-secondary active:bg-weather-secondary">
-          <div v-if="idea_details" class="px-4 py-6 sm:px-6 lg:px-8 lg:py-16">
-            <div class="grid gap-8 row-gap-10 lg:grid-cols-2">
-              <div class="flex flex-col max-w-md mx-auto sm:flex-row">
-                <div>
-                  <h6 class="mb-3 text-lg sm:text-xl font-bold leading-5">Target Audience</h6>
-                  <p v-html="idea_details.target_audience" class="mb-3 text-sm sm:text-base text-gray-900"></p>
-                </div>
-              </div>
-              <div class="flex flex-col max-w-md mx-auto sm:flex-row">
-                <div>
-                  <h6 class="mb-3 text-lg sm:text-xl font-bold leading-5">Pricing</h6>
-                  <p v-html="idea_details.pricing" class="mb-3 text-sm sm:text-base text-gray-900"></p>
-                </div>
-              </div>
-              <div class="flex flex-col max-w-md mx-auto sm:flex-row">
-                <div>
-                  <h6 class="mb-3 text-lg sm:text-xl font-bold leading-5">Marketing</h6>
-                  <p v-html="idea_details.marketing" class="mb-3 text-sm sm:text-base text-gray-900"></p>
-                </div>
-              </div>
-              <div class="flex flex-col max-w-md mx-auto sm:flex-row">
-                <div>
-                  <h6 class="mb-3 text-lg sm:text-xl font-bold leading-5">Stand Out</h6>
-                  <p v-html="idea_details.stand_out" class="mb-3 text-sm sm:text-base text-gray-900"></p>
-                </div>
-              </div>
-              <div class="flex flex-col max-w-md mx-auto sm:flex-row">
-                <div>
-                  <h6 class="mb-3 text-lg sm:text-xl font-bold leading-5">Dos</h6>
-                  <ul v-for="dos in idea_details.dos" :key="dos.id" class="list-disc list-inside text-base sm:text-lg text-gray-700 space-y-2">
-                    <li v-html="dos" class="mb-3 text-sm sm:text-base text-gray-900"></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="flex flex-col max-w-md mx-auto sm:flex-row">
-                <div>
-                  <h6 class="mb-3 text-lg sm:text-xl font-bold leading-5">Donts</h6>
-                  <ul v-for="donts in idea_details.donts" :key="donts.id" class="list-disc list-inside text-base sm:text-lg text-gray-700 space-y-2">
-                    <li v-html="donts" class="mb-3 text-sm sm:text-base text-gray-900"></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+    <div v-if="idea_details" class="px-4 py-6 sm:px-6 lg:px-8 lg:py-16">
+      <div class="grid gap-8 row-gap-10 lg:grid-cols-2">
+        <div class="flex flex-col max-w-md mx-auto sm:flex-row">
+          <div>
+            <h6 class="mb-3 text-lg sm:text-xl font-bold leading-5">Target Audience</h6>
+            <p v-html="idea_details.target_audience" class="mb-3 text-sm sm:text-base text-gray-900"></p>
           </div>
-          <div v-else class="sm:col-span-3 lg:col-span-2 p-2">
-            <div class="mb-3 flex">
-              <p class="text-2xl font-extrabold leading-none sm:text-2xl xl:text-2xl">Like the concept or idea so far? Generate details and plans!</p>
-              <button @click="generateDetails" class="bg-weather-primary hover:bg-weather-secondary text-white font-bold py-2 px-2 rounded mx-12">
-                <span v-if="!loading_details">Generate Details</span>
-                <span v-else class="flex items-center">
-                  <svg class="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-                  </svg>
-                  Generating details..
-                </span>
-              </button>
-            </div>
-            <p class="text-gray-700">Get target audience, pricing, marketing, stand out, dos, donts and project management templates.</p>
+        </div>
+        <div class="flex flex-col max-w-md mx-auto sm:flex-row">
+          <div>
+            <h6 class="mb-3 text-lg sm:text-xl font-bold leading-5">Pricing</h6>
+            <p v-html="idea_details.pricing" class="mb-3 text-sm sm:text-base text-gray-900"></p>
           </div>
-        </fwb-tab>
-        <fwb-tab name="second" title="Quality">
-          <div v-if="idea_quality">
-            <Rating :idea_quality="idea_quality" />
+        </div>
+        <div class="flex flex-col max-w-md mx-auto sm:flex-row">
+          <div>
+            <h6 class="mb-3 text-lg sm:text-xl font-bold leading-5">Marketing</h6>
+            <p v-html="idea_details.marketing" class="mb-3 text-sm sm:text-base text-gray-900"></p>
           </div>
-          <div v-else class="sm:col-span-3 lg:col-span-2 p-2">
-            <div class="mb-3 flex">
-              <p class="text-2xl font-extrabold leading-none sm:text-2xl xl:text-2xl">Rate the idea!</p>
-              <button @click="generateQualityRatings" class="bg-weather-primary hover:bg-weather-secondary text-white font-bold py-2 px-2 rounded mx-12">
-                <span v-if="!loading_quality">Rate Idea</span>
-                <span v-else class="flex items-center">
-                  <svg class="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-                  </svg>
-                  Loading...
-                </span>
-              </button>
-            </div>
+        </div>
+        <div class="flex flex-col max-w-md mx-auto sm:flex-row">
+          <div>
+            <h6 class="mb-3 text-lg sm:text-xl font-bold leading-5">Stand Out</h6>
+            <p v-html="idea_details.stand_out" class="mb-3 text-sm sm:text-base text-gray-900"></p>
           </div>
-        </fwb-tab>
-        <fwb-tab name="third" title="Gantt Chart">
-          <div v-if="idea_gantt_chart">
-            <GanttChart :ganttChart="idea_gantt_chart" />
+        </div>
+        <div class="flex flex-col max-w-md mx-auto sm:flex-row">
+          <div>
+            <h6 class="mb-3 text-lg sm:text-xl font-bold leading-5">Dos</h6>
+            <ul v-for="dos in idea_details.dos" :key="dos.id" class="list-disc list-inside text-base sm:text-lg text-gray-700 space-y-2">
+              <li v-html="dos" class="mb-3 text-sm sm:text-base text-gray-900"></li>
+            </ul>
           </div>
-          <div v-else class="sm:col-span-3 lg:col-span-2 p-2">
-            <div class="mb-3 flex">
-              <p class="text-2xl font-extrabold leading-none sm:text-2xl xl:text-2xl">Generate Gantt Chart</p>
-              <button @click="generateGanttChart" class="bg-weather-primary hover:bg-weather-secondary text-white font-bold py-2 px-2 rounded mx-12">
-                <span v-if="!loading_gantt_chart">Generate Gantt Chart</span>
-                <span v-else class="flex items-center">
-                  <svg class="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-                  </svg>
-                  Loading...
-                </span>
-              </button>
-            </div>
+        </div>
+        <div class="flex flex-col max-w-md mx-auto sm:flex-row">
+          <div>
+            <h6 class="mb-3 text-lg sm:text-xl font-bold leading-5">Donts</h6>
+            <ul v-for="donts in idea_details.donts" :key="donts.id" class="list-disc list-inside text-base sm:text-lg text-gray-700 space-y-2">
+              <li v-html="donts" class="mb-3 text-sm sm:text-base text-gray-900"></li>
+            </ul>
           </div>
-        </fwb-tab>
-        <fwb-tab name="fourth" title="SCAMPER">
-          <div v-if="idea_scamper">
-            <Scamper :idea_scamper="idea_scamper" />
-          </div>
-          <div v-else class="sm:col-span-3 lg:col-span-2 p-2">
-            <div class="mb-3 flex">
-              <p class="text-2xl font-extrabold leading-none sm:text-2xl xl:text-2xl">Run SCAMPER method</p>
-              <button @click="generateScamper" class="bg-weather-primary hover:bg-weather-secondary text-white font-bold py-2 px-2 rounded mx-12">
-                <span v-if="!loading_scamper">Run SCAMPER</span>
-                <span v-else class="flex items-center">
-                  <svg class="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-                  </svg>
-                  Loading...
-                </span>
-              </button>
-            </div>
-          </div>
-        </fwb-tab>
-        <!--
-        <fwb-tab name="fifth" title="Planning" disabled>
-          <div v-if="idea_plans">
-            <Plans :idea_plans="idea_plans" />
-          </div>
-          <div v-else class="sm:col-span-3 lg:col-span-2 p-2">
-            <div class="mb-3 flex">
-              <p class="text-2xl font-extrabold leading-none sm:text-2xl xl:text-2xl">Generate project management plans!</p>
-              <button @click="generatePlans" class="bg-weather-primary hover:bg-weather-secondary text-white font-bold py-2 px-2 rounded mx-12">
-                <span v-if="!loading_plans">Generate Plans</span>
-                <span v-else class="flex items-center">
-                  <svg class="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-                  </svg>
-                  Loading...
-                </span>
-              </button>
-            </div>
-          </div>
-        </fwb-tab>
-        <fwb-tab name="sixth" title="Competitive landscape" disabled>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste dolores qui quos asperiores in officiis natus odit enim modi eius mollitia reprehenderit, repudiandae rem corrupti. Aliquid porro consequatur voluptatem qui?
-        </fwb-tab>
-        <fwb-tab name="seventh" title="Design Thinking" disabled>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste dolores qui quos asperiores in officiis natus odit enim modi eius mollitia reprehenderit, repudiandae rem corrupti. Aliquid porro consequatur voluptatem qui?
-        </fwb-tab>
-      -->
-      </fwb-tabs>
-    </flowbite-themable>
+        </div>
+      </div>
+    </div>
+    <div v-else class="sm:col-span-3 lg:col-span-2 p-2">
+      <div class="mb-3 flex">
+        <p class="text-2xl font-extrabold leading-none sm:text-2xl xl:text-2xl">Like the concept or idea so far? Generate details and plans!</p>
+        <button @click="generateDetails" class="bg-weather-primary hover:bg-weather-secondary text-white font-bold py-2 px-2 rounded mx-12">
+          <span v-if="!loading_details">Generate Details</span>
+          <span v-else class="flex items-center">
+            <svg class="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+            </svg>
+            Generating details..
+          </span>
+        </button>
+      </div>
+      <p class="text-gray-700">Get target audience, pricing, marketing, stand out, dos, donts and project management templates.</p>
+    </div>
+    <div v-if="idea_quality">
+      <Rating :idea_quality="idea_quality" />
+    </div>
+    <div v-else class="sm:col-span-3 lg:col-span-2 p-2">
+      <div class="mb-3 flex">
+        <p class="text-2xl font-extrabold leading-none sm:text-2xl xl:text-2xl">Rate the idea!</p>
+        <button @click="generateQualityRatings" class="bg-weather-primary hover:bg-weather-secondary text-white font-bold py-2 px-2 rounded mx-12">
+          <span v-if="!loading_quality">Rate Idea</span>
+          <span v-else class="flex items-center">
+            <svg class="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+            </svg>
+            Loading...
+          </span>
+        </button>
+      </div>
+    </div>
+    <div v-if="idea_scamper">
+      <Scamper :idea_scamper="idea_scamper" />
+    </div>
+    <div v-else class="sm:col-span-3 lg:col-span-2 p-2">
+      <div class="mb-3 flex">
+        <p class="text-2xl font-extrabold leading-none sm:text-2xl xl:text-2xl">Run SCAMPER method</p>
+        <button @click="generateScamper" class="bg-weather-primary hover:bg-weather-secondary text-white font-bold py-2 px-2 rounded mx-12">
+          <span v-if="!loading_scamper">Run SCAMPER</span>
+          <span v-else class="flex items-center">
+            <svg class="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+            </svg>
+            Loading...
+          </span>
+        </button>
+      </div>
+    </div>
+    <div v-if="idea_gantt_chart">
+      <GanttChart :ganttChart="idea_gantt_chart" />
+    </div>
+    <div v-else class="sm:col-span-3 lg:col-span-2 p-2">
+      <div class="mb-3 flex">
+        <p class="text-2xl font-extrabold leading-none sm:text-2xl xl:text-2xl">Generate Gantt Chart</p>
+        <button @click="generateGanttChart" class="bg-weather-primary hover:bg-weather-secondary text-white font-bold py-2 px-2 rounded mx-12">
+          <span v-if="!loading_gantt_chart">Generate Gantt Chart</span>
+          <span v-else class="flex items-center">
+            <svg class="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+            </svg>
+            Loading...
+          </span>
+        </button>
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script setup>
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import { FwbTab, FwbTabs, FlowbiteThemable } from 'flowbite-vue';
 import RaidChart from './IdeaDetails/RaidChart.vue';
 import GanttChart from './IdeaDetails/GanttChart.vue';
 import MilestonePlan from './IdeaDetails/MilestonePlan.vue';

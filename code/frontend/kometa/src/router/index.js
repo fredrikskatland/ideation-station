@@ -10,6 +10,7 @@ import Product from '../components/Product.vue'
 import Feedback from '../components/Feedback.vue'
 import MyUserProfile from '../components/MyUserProfile.vue'
 import Hero from '../components/Hero.vue'
+import IdeaDetailScroll from '../components/IdeaDetailScroll.vue'
 
 const routes = [
   { path: '/', component: Hero },
@@ -21,7 +22,7 @@ const routes = [
   { path: '/product', component: Product },
   { path: '/feedback', component: Feedback },
   { path: '/myuserprofile', component: MyUserProfile },
-  { path: '/idea/:id', component: IdeaDetail, props: true },
+  { path: '/idea/:id', component: IdeaDetailScroll, props: true },
 ]
 
 const router = createRouter({
