@@ -19,25 +19,25 @@
           </div>
           <div class="flex items-center md:flex-row justify-center">
             <div 
-              class="inline-flex items-center justify-center w-full font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none  bg-weather-primary border border-gray-300 rounded"
+            class="inline-flex items-center justify-center w-full h-12 md:h-12 lg:h-12 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none bg-weather-primary border border-gray-700"
             >
               <!-- If logged in link to /workspace, otherwise link to /signup -->
               <div v-if="isLoggedIn">
                 <router-link to="/workspace" class="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400 p-12">Go to workspace</router-link>
               </div>
               <div v-else>
-                <router-link to="/signup" class="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400 p-3">Sign up and test for free!</router-link>
+                <router-link to="/signup" class="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400 p-12">Sign up and test for free!</router-link>
               </div>
             </div>
           </div>
         </div>
         <div class="relative lg:w-1/2">
-            <div class="relative w-full transition-shadow duration-300 hover:shadow-xl">
-                <LiteYouTubeEmbed
-                id="_4zGesP1oJI"
-                title="Ideation Station App Demo"
-            />
-            </div>
+          <div class="relative w-full transition-shadow duration-300 hover:shadow-xl">
+              <LiteYouTubeEmbed
+              id="_4zGesP1oJI"
+              title="Ideation Station App Demo"
+          />
+          </div>
         </div>
       </div>
       <HowItWorks />
