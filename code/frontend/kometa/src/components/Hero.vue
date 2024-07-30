@@ -21,7 +21,13 @@
             <div 
               class="inline-flex items-center justify-center w-full font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none  bg-weather-primary border border-gray-300 rounded"
             >
-            <router-link to="/signup" class="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400 p-3">Sign up and test for free!</router-link>
+              <!-- If logged in link to /workspace, otherwise link to /signup -->
+              <div v-if="isLoggedIn">
+                <router-link to="/workspace" class="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400 p-12">Go to workspace</router-link>
+              </div>
+              <div v-else>
+                <router-link to="/signup" class="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400 p-3">Sign up and test for free!</router-link>
+              </div>
             </div>
           </div>
         </div>
@@ -41,8 +47,18 @@
   
 
 <script setup>
-    import LiteYouTubeEmbed from 'vue-lite-youtube-embed'
-    import HowItWorks from './HowItWorks.vue';
-    import HowItWorksSteps from './HowItWorksSteps.vue';
+  import { ref, onMounted } from 'vue';
+  import LiteYouTubeEmbed from 'vue-lite-youtube-embed';
+  import HowItWorks from './HowItWorks.vue';
+  import HowItWorksSteps from './HowItWorksSteps.vue';
+  import PocketBase from 'pocketbase';
+  import { useAuthStore } from '../store';  // adjust the path if needed
 
+  const pb = new PocketBase(import.meta.env.VITE_POCKETBASE_URL || 'http://127.0.0.1:8090');
+  const authStore = useAuthStore();
+  const isLoggedIn = ref(false);
+
+  onMounted(() => {
+    isLoggedIn.value = pb.authStore.isValid;
+  });
 </script>
