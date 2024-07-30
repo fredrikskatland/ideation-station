@@ -8,8 +8,8 @@
     </div>
   </div>
   <div class="px-4 sm:px-6 lg:px-8">
-    <div v-if="idea_details" class="px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
-      <div class="text-xl sm:text-2xl lg:text-3xl font-extrabold px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-8">Details</div>
+    <div v-if="idea_details" class="px-4 py-6 sm:px-6 lg:px-8 lg:py-6">
+      <div class="text-xl sm:text-2xl lg:text-3xl font-extrabold px-4 py-6 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-4">Details</div>
       <div class="grid gap-8 row-gap-10 lg:grid-cols-2">
         <div class="flex flex-col max-w-md mx-auto sm:flex-row">
           <div>
@@ -86,6 +86,24 @@
     </div>
     <div v-if="idea_scamper">
       <Scamper :idea_scamper="idea_scamper" />
+      <div v-if="idea_gantt_chart">
+        <GanttChart :ganttChart="idea_gantt_chart" />
+      </div>
+      <div v-else class="sm:col-span-3 lg:col-span-2 p-2">
+        <div class="mb-3 flex">
+          <p class="text-2xl font-extrabold leading-none sm:text-2xl xl:text-2xl">Generate Gantt Chart</p>
+          <button @click="generateGanttChart" class="bg-weather-primary hover:bg-weather-secondary text-white font-bold py-2 px-2 rounded mx-12">
+            <span v-if="!loading_gantt_chart">Generate Gantt Chart</span>
+            <span v-else class="flex items-center">
+              <svg class="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+              </svg>
+              Loading...
+            </span>
+          </button>
+        </div>
+      </div>
     </div>
     <div v-else class="sm:col-span-3 lg:col-span-2 p-2">
       <div class="mb-3 flex">
@@ -101,24 +119,7 @@
         </button>
       </div>
     </div>
-    <div v-if="idea_gantt_chart">
-      <GanttChart :ganttChart="idea_gantt_chart" />
-    </div>
-    <div v-else class="sm:col-span-3 lg:col-span-2 p-2">
-      <div class="mb-3 flex">
-        <p class="text-2xl font-extrabold leading-none sm:text-2xl xl:text-2xl">Generate Gantt Chart</p>
-        <button @click="generateGanttChart" class="bg-weather-primary hover:bg-weather-secondary text-white font-bold py-2 px-2 rounded mx-12">
-          <span v-if="!loading_gantt_chart">Generate Gantt Chart</span>
-          <span v-else class="flex items-center">
-            <svg class="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-            </svg>
-            Loading...
-          </span>
-        </button>
-      </div>
-    </div>
+
 
   </div>
 </template>
