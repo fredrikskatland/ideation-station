@@ -19,7 +19,7 @@
         <form @submit.prevent="handleSubmitIdea" class="flex flex-col items-center w-full mb-4 md:flex-row md:px-16">
           <input
             v-model="inputData"
-            placeholder="Examples: 'Sustainable nitting', 'Something around biking and wealth management'"
+            placeholder="Ex: 'Sustainable nitting', 'backyard farming'"
             required
             type="text"
             class="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
