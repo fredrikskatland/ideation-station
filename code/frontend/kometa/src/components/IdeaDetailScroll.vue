@@ -8,7 +8,8 @@
     </div>
   </div>
   <div class="px-4 sm:px-6 lg:px-8">
-    <div v-if="idea_details" class="px-4 py-6 sm:px-6 lg:px-8 lg:py-16">
+    <div v-if="idea_details" class="px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+      <div class="text-xl sm:text-2xl lg:text-3xl font-extrabold px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-8">Details</div>
       <div class="grid gap-8 row-gap-10 lg:grid-cols-2">
         <div class="flex flex-col max-w-md mx-auto sm:flex-row">
           <div>
@@ -54,7 +55,6 @@
     </div>
     <div v-else class="sm:col-span-3 lg:col-span-2 p-2">
       <div class="mb-3 flex">
-        <p class="text-2xl font-extrabold leading-none sm:text-2xl xl:text-2xl">Like the concept or idea so far? Generate details and plans!</p>
         <button @click="generateDetails" class="bg-weather-primary hover:bg-weather-secondary text-white font-bold py-2 px-2 rounded mx-12">
           <span v-if="!loading_details">Generate Details</span>
           <span v-else class="flex items-center">
@@ -66,14 +66,12 @@
           </span>
         </button>
       </div>
-      <p class="text-gray-700">Get target audience, pricing, marketing, stand out, dos, donts and project management templates.</p>
     </div>
     <div v-if="idea_quality">
       <Rating :idea_quality="idea_quality" />
     </div>
     <div v-else class="sm:col-span-3 lg:col-span-2 p-2">
       <div class="mb-3 flex">
-        <p class="text-2xl font-extrabold leading-none sm:text-2xl xl:text-2xl">Rate the idea!</p>
         <button @click="generateQualityRatings" class="bg-weather-primary hover:bg-weather-secondary text-white font-bold py-2 px-2 rounded mx-12">
           <span v-if="!loading_quality">Rate Idea</span>
           <span v-else class="flex items-center">
@@ -81,7 +79,7 @@
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
               <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
             </svg>
-            Loading...
+            Generating quality rating..
           </span>
         </button>
       </div>
@@ -91,7 +89,6 @@
     </div>
     <div v-else class="sm:col-span-3 lg:col-span-2 p-2">
       <div class="mb-3 flex">
-        <p class="text-2xl font-extrabold leading-none sm:text-2xl xl:text-2xl">Run SCAMPER method</p>
         <button @click="generateScamper" class="bg-weather-primary hover:bg-weather-secondary text-white font-bold py-2 px-2 rounded mx-12">
           <span v-if="!loading_scamper">Run SCAMPER</span>
           <span v-else class="flex items-center">
@@ -99,7 +96,7 @@
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
               <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
             </svg>
-            Loading...
+            Generating SCAMPER variations..
           </span>
         </button>
       </div>
@@ -146,8 +143,6 @@ import {
 import PocketBase from 'pocketbase';
 
 const pb = new PocketBase(import.meta.env.VITE_POCKETBASE_URL || 'http://127.0.0.1:8090');
-const activeTab = ref('first');
-const theme = 'green';
 const loading_details = ref(false);
 const loading_plans = ref(false);
 const loading_quality = ref(false);
@@ -167,7 +162,6 @@ onMounted(async () => {
   loading_plans.value = true;
   loading_quality.value = true;
   loading_scamper.value = true;
-  loading_gantt_chart.value = true;
   try {
     idea.value = await fetchIdea(route.params.id);
     console.log(idea.value);
@@ -242,6 +236,9 @@ const generateDetails = async () => {
 
     idea.value = await fetchIdea(route.params.id);
     idea_details.value = await fetchIdeaDetails(route.params.id);
+
+    await generateQualityRatings();
+
   } catch (error) {
     console.error('There was a problem with the fetch operation:', error);
   } finally {
@@ -303,8 +300,10 @@ const generateQualityRatings = async () => {
 
     idea.value = await fetchIdea(route.params.id);
     idea_details.value = await fetchIdeaDetails(route.params.id);
-    idea_plans.value = await fetchIdeaPlans(route.params.id);
     idea_quality.value = await fetchIdeaQuality(route.params.id);
+
+    await generateScamper();
+
   } catch (error) {
     console.error('There was a problem with the fetch operation:', error);
   } finally {
@@ -362,6 +361,7 @@ const generatePlans = async () => {
     await pb.collection('idea_plans').create(data);
 
     console.log('Data successfully saved to PocketBase');
+
   } catch (error) {
     console.error('There was a problem with the fetch operation:', error);
   } finally {

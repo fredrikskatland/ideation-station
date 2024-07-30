@@ -1,5 +1,6 @@
 <template>
-    <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+    <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-8">
+      <div class="text-xl sm:text-2xl lg:text-3xl font-extrabold px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-8">SCAMPER Variations</div>
       <div class="grid gap-8 row-gap-5 sm:row-gap-8 sm:grid-cols-2 lg:grid-cols-3">
         <div>
           <div class="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-indigo-50">

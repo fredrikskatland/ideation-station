@@ -30,6 +30,7 @@ import ganttastic from '@infectoone/vue-ganttastic'
 // head
 import { createHead } from '@vueuse/head'
 
+
 // Add icons to the library
 library.add(fas, far, fab)
 
