@@ -41,9 +41,9 @@
         <h3 class="shadow-lg bg-weather-primary text-white text-3xl font-Roboto p-2">Milestone Plan:</h3>
         <div v-html="milestone_plan" class="bg-weather-secondary text-white px-4 py-2 rounded-lg mt-4 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:ring-opacity-50 hover:bg-weather-secondary duration-150"></div>
       </div>
-      <div v-if="gant_chart">
+      <div v-if="gantt_chart">
         <h3 class="shadow-lg bg-weather-primary text-white text-3xl font-Roboto p-2">Gant Chart:</h3>
-        <div v-html="gant_chart" class="bg-weather-secondary text-white px-4 py-2 rounded-lg mt-4 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:ring-opacity-50 hover:bg-weather-secondary duration-150"></div>
+        <div v-html="gantt_chart" class="bg-weather-secondary text-white px-4 py-2 rounded-lg mt-4 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:ring-opacity-50 hover:bg-weather-secondary duration-150"></div>
       </div>
       <div v-if="raid_chart">
         <h3 class="shadow-lg bg-weather-primary text-white text-3xl font-Roboto p-2">Raid Chart:</h3>
@@ -118,7 +118,7 @@
         required: false,
         default: null
       },
-      gant_chart: {
+      gantt_chart: {
         type: String,
         required: false,
         default: null

@@ -49,7 +49,7 @@
         :dos="selectedIdea.dos"
         :donts="selectedIdea.donts"
         :milestone_plan="selectedIdea.milestone_plan"
-        :gant_chart="selectedIdea.gant_chart"
+        :gantt_chart="selectedIdea.gantt_chart"
         :raid_chart="selectedIdea.raid_chart"
         :task_table="selectedIdea.task_table"
       />
@@ -124,7 +124,7 @@ const fetchIdeas = async () => {
       dos: record.idea_output.markdown.dos,
       donts: record.idea_output.markdown.donts,
       milestone_plan: record.idea_output.plans.milestone_plan,
-      gant_chart: record.idea_output.plans.gant_chart,
+      gantt_chart: record.idea_output.plans.gantt_chart,
       raid_chart: record.idea_output.plans.raid_chart,
       task_table: record.idea_output.plans.task_table,
       created: record.created

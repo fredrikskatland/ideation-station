@@ -63,7 +63,7 @@
           dos: record.idea_output?.concept?.dos,
           donts: record.idea_output?.concept?.donts,
           milestone_plan: record.idea_output?.plans?.milestone_plan,
-          gant_chart: record.idea_output?.plans?.gant_chart,
+          gantt_chart: record.idea_output?.plans?.gantt_chart,
           raid_chart: record.idea_output?.plans?.raid_chart,
           task_table: record.idea_output?.plans?.task_table,
           created: record.created

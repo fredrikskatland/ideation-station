@@ -29,7 +29,7 @@
           :dos="dos"
           :donts="donts"
           :milestone_plan="milestone_plan"
-          :gant_chart="gant_chart"
+          :gantt_chart="gantt_chart"
           :raid_chart="raid_chart"
           :task_table="task_table"
 
@@ -68,7 +68,7 @@
             dos: null,
             donts: null,
             milestone_plan: null,
-            gant_chart: null,
+            gantt_chart: null,
             raid_chart: null,
             task_table: null,
             loading: false
@@ -89,7 +89,7 @@
                 this.dos = null;
                 this.donts = null;
                 this.milestone_plan = null;
-                this.gant_chart = null;
+                this.gantt_chart = null;
                 this.raid_chart = null;
                 this.task_table = null;
 
@@ -119,7 +119,7 @@
                     this.dos = marked(jsonResponse.output.markdown.dos, null, 2);
                     this.donts = marked(jsonResponse.output.markdown.donts, null, 2);
                     this.milestone_plan = marked(jsonResponse.output.plans.milestone_plan, null, 2);
-                    this.gant_chart = marked(jsonResponse.output.plans.gant_chart, null, 2);
+                    this.gantt_chart = marked(jsonResponse.output.plans.gantt_chart, null, 2);
                     this.raid_chart = marked(jsonResponse.output.plans.raid_chart, null, 2);
                     this.task_table = marked(jsonResponse.output.plans.task_table, null, 2);
 
